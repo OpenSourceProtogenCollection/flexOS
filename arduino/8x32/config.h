@@ -15,6 +15,8 @@
     along with OSPC.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+// this file contains device-specific configurations and library imports
+
 #ifndef config_h
 #define config_h
 #include <FastLED.h>
