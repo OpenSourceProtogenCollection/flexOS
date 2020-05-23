@@ -20,7 +20,7 @@
     /  \   _ __ __| |_   _ _ _ __ ______ _____      _____
    / /\ \ | '__/ _` | | | | | '_ \______/ _ \ \ /\ / / _ \
   / ____ \| | | (_| | |_| | | | | |    | (_) \ V  V / (_) |
-  /_/    \_\_|  \__,_|\__,_|_|_| |_|     \___/ \_/\_/ \___/ */
+ /_/    \_\_|  \__,_|\__,_|_|_| |_|     \___/ \_/\_/ \___/ */
 
 #include "config.h" // this file includes our libraries and device-specific variables
 #include "declarations.h" // this file includes variables for LED patterns
