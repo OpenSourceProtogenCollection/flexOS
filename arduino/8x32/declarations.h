@@ -52,6 +52,11 @@ const long int green = 0x00FF00;
 #define CHK_EYES_1 5
 #define CHK_EYES_M 6
 #define CHK_EYES_L 10
+#define PHN_EYES_S 58
+#define PHN_EYES_1 10
+#define PHN_EYES_2 8
+#define ZZZ_EYES_S 39
+#define ZZZ_EYES_M 10
 
 // arrays used by drawPattern, can I shrink these to uint8?
 /* ABOUT PROGMEM (PGM)
@@ -115,6 +120,16 @@ const uint16_t checkEyes1[] PROGMEM = {142, 145, 156, 157, 163};
 const uint16_t checkEyes2[] PROGMEM = {113, 126, 127, 128, 129, 143};
 const uint16_t checkEyes3[] PROGMEM = {99, 108, 109, 114, 115, 125};
 const uint16_t checkEyes4[] PROGMEM = {73, 85, 86, 89, 90, 91, 99, 100, 101, 107};
+const uint16_t phoneEyesSt[] PROGMEM = {66, 67, 68, 76, 77, 78, 79, 82, 83, 84, 85, 86, 91, 92, 93, 94, 95, 100, 101, 102, 107, 108, 109, 116, 117, 118, 123, 124, 125, 132, 133, 134, 139, 140, 141, 148, 149, 150, 155, 156, 157, 162, 163, 164, 165, 166, 171, 172, 173, 174, 175, 178, 179, 180, 181, 189, 190, 191};
+const uint16_t phoneEyes1[] PROGMEM = {52, 53, 59, 67, 74, 183, 186, 198, 204, 205};
+const uint16_t phoneEyes2[] PROGMEM = {38, 39, 41, 56, 201, 216, 218, 219};
+const uint16_t zzzEyes1[] PROGMEM = {41, 44, 51, 53, 54, 57, 59, 60, 67, 68, 70, 73, 76, 106, 109, 114, 116, 117, 122, 124, 125, 130, 131, 133, 138, 141, 171, 174, 177, 179, 180, 187, 189, 190, 193, 194, 196, 203, 206};
+const uint16_t zzzEyesA1[] PROGMEM = {170, 173, 178, 181, 186, 188, 195, 197, 202, 205};
+const uint16_t zzzEyesR1[] PROGMEM = {171, 174, 177, 179, 187, 190, 193, 196, 203, 206};
+const uint16_t zzzEyesA2[] PROGMEM = {105, 108, 115, 118, 121, 123, 132, 134, 137, 140};
+const uint16_t zzzEyesR2[] PROGMEM = {106, 109, 114, 116, 122, 125, 130, 133, 138, 141};
+const uint16_t zzzEyesA3[] PROGMEM = {40, 43, 52, 55, 56, 58, 69, 71, 72, 75};
+const uint16_t zzzEyesR3[] PROGMEM = {41, 44, 51, 53, 57, 60, 67, 70, 73, 76};
 
 // * end drawPattern arrays *
 
