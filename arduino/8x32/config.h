@@ -36,5 +36,5 @@
 #define LED_PIN 6 // pin where matrices are connected
 #define NUM_LEDS MATRIX_TILE_WIDTH * abs(MATRIX_TILE_HEIGHT)
 
-#define BRIGHTNESS 5 // brightness of LEDs
+#define BRIGHTNESS 10 // brightness of LEDs
 #endif
