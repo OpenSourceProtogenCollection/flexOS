@@ -23,7 +23,7 @@
 // colour codes
 const long int black = 0x000000;
 const long int red = 0xff0000;
-const long int yellow = 0xffff00;
+const long int yellow = 0xffd900;
 const long int purpleblue = 0x1b139e;
 const long int seafoam = 0x009688;
 const long int deepblue = 0x0000FF;
@@ -57,6 +57,7 @@ const long int green = 0x00FF00;
 #define PHN_EYES_2 8
 #define ZZZ_EYES_S 39
 #define ZZZ_EYES_M 10
+#define LOW_MOUTH 42
 
 // arrays used by drawPattern, can I shrink these to uint8?
 // PGM comes into play here. For more info about PGM, see the declarations header or the wiki
@@ -120,6 +121,7 @@ const uint16_t zzzEyesA2[] PROGMEM = {105, 108, 115, 118, 121, 123, 132, 134, 13
 const uint16_t zzzEyesR2[] PROGMEM = {106, 109, 114, 116, 122, 125, 130, 133, 138, 141};
 const uint16_t zzzEyesA3[] PROGMEM = {40, 43, 52, 55, 56, 58, 69, 71, 72, 75};
 const uint16_t zzzEyesR3[] PROGMEM = {41, 44, 51, 53, 57, 60, 67, 70, 73, 76};
+const uint16_t lowBatMouth[] PROGMEM = {24, 27, 34, 35, 36, 38, 39, 41, 42, 43, 44, 45, 46, 48, 49, 51, 52, 53, 59, 60, 63, 184, 187, 194, 195, 196, 198, 199, 201, 202, 203, 204, 205, 206, 208, 209, 211, 212, 213, 219, 220, 223};
 
 // * end drawPattern arrays *
 
@@ -131,10 +133,17 @@ const unsigned char handlerMouthText[] = { EFFECT_FRAME_RATE "\x00"
 EFFECT_BACKGND_LEAVE EFFECT_RGB "\xFF\x00\x00"
 EFFECT_SCROLL_LEFT "      LOST HANDLER"
 };
+const unsigned char handlerEyesText[] = { EFFECT_FRAME_RATE "\x00"
+EFFECT_BACKGND_LEAVE EFFECT_RGB "\xFF\x00\x00"
+EFFECT_SCROLL_LEFT "      HELP"
+};
 
 
 // arrays used by loading anim
 const int topRow[] = {136, 135, 120, 119, 104, 103, 88};
+const int rightRow[] = {89, 90, 91, 92, 93, 94, 95};
+const int bottomRow[] = {96, 111, 112, 127, 128, 143};
+const int leftRow[] = {142, 141, 140, 139, 138, 137, 136};
 const uint32_t rainbow[] = {CRGB::Red, CRGB::Orange, CRGB::Yellow, CRGB::Green, CRGB::Blue, CRGB::Indigo, CRGB::Violet};
 
 #endif
