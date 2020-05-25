@@ -67,6 +67,7 @@ void loop() {
   */
 
   //  // patterns begin here. while testing, all patterns will go in this sketch. later they'll go into separate sketches depending on which patterns go where
+
 }
 
 void writeAttnEyes() {
@@ -161,12 +162,9 @@ void writeCoffeeEyes() {
 
 void writeCoffeeMouth() {
   FastLED.clear();
-  roomSet = false;
-  handlerMouthSet = false;
-  if (ScrollingMsg.UpdateText() == -1 || coffeeSet == false) {
+  if (ScrollingMsg.UpdateText() == -1) {
     ScrollingMsg.SetText(coffeeText, 19);
     ScrollingMsg.SetTextColrOptions(COLR_RGB | COLR_SINGLE, 0x00, 0x00, 0xff);
-    coffeeSet = true;
   }
   else
     FastLED.show();
@@ -349,16 +347,16 @@ void writeIdEyes() {
 void writeJoyEyes(bool laughing) {
   int eyeSpeed1;
   int eyeSpeed2;
-  
-  if (laughing) {
-  eyeSpeed1 = 200;
-  eyeSpeed2 = 150;
-} else {
-  eyeSpeed1 = 1000;
-  eyeSpeed2 = 1000;
-}
 
-FastLED.clear();
+  if (laughing) {
+    eyeSpeed1 = 200;
+    eyeSpeed2 = 150;
+  } else {
+    eyeSpeed1 = 1000;
+    eyeSpeed2 = 1000;
+  }
+
+  FastLED.clear();
   ledmatrix.DrawLine(3, 4, 5, 6, 0xFFFFFF);
   ledmatrix.DrawLine(7, 4, 6, 5, 0xFFFFFF);
   ledmatrix.DrawLine(24, 4, 26, 6, 0xFFFFFF);
@@ -374,8 +372,8 @@ FastLED.clear();
   delay(eyeSpeed2);
 }
 
-void writePhoneEyes(){
-    FastLED.clear();
+void writePhoneEyes() {
+  FastLED.clear();
   ledmatrix.DrawFilledRectangle(8, 1, 11, 3, deepblue);
   ledmatrix.DrawFilledRectangle(20, 1, 23, 3, deepblue);
   ledmatrix.DrawFilledRectangle(21, 3, 10, 5, deepblue);
@@ -403,8 +401,8 @@ void writePhoneEyes(){
   delay(250);
 }
 
-void writeSleepyEyes(){
-    FastLED.clear();
+void writeSleepyEyes() {
+  FastLED.clear();
   ledmatrix.DrawLine(28, 5, 25, 5, 0xFFFFFF);
   ledmatrix.DrawLine(6, 5, 3, 5, 0xFFFFFF);
   FastLED.show();
@@ -435,79 +433,164 @@ void writeSleepyEyes(){
   delay(1000);
 }
 
-void writeLoadingEyes(){
-   /* loading eyes - this can probably be shortened into a loop but I'm lazy BUT it's broken anyways so...
+void writeLoadingEyes() {
+  /* loading eyes - currently broken due to library issue */
 
 
-    FastLED.clear();
-    singleLED(151, rainbow[0]);
-    singleLED(150, rainbow[1]);
-    singleLED(149, rainbow[2]);
-    singleLED(148, rainbow[3]);
-    singleLED(147, rainbow[4]);
-    singleLED(146, rainbow[5]);
-    singleLED(145, rainbow[6]);
+  FastLED.clear();
+  singleLED(151, rainbow[0]);
+  singleLED(150, rainbow[1]);
+  singleLED(149, rainbow[2]);
+  singleLED(148, rainbow[3]);
+  singleLED(147, rainbow[4]);
+  singleLED(146, rainbow[5]);
+  singleLED(145, rainbow[6]);
 
-    // an attempt
-    //  for (int loadingCounterUp = 0; loadingCounterUp < 7; loadingCounterUp++) {
-    //    FastLED.show();
-    //    delay(150);
-    //    ledmatrix.ShiftUp();
-    //    for (int loadingCounterUpSub = 0; loadingCounterUpSub <= loadingCounterUp; loadingCounterUpSub++) {
-    //      singleLED(topRow[loadingCounterUpSub], rainbow[loadingCounterUp]);
-    //    }
-    //  }
+  // horrid manual method of doing things
+  //    ledmatrix.ShiftUp();
+  //    singleLED(topRow[0], rainbow[0], 150);
+  //    ledmatrix.ShiftUp();
+  //    singleLED(topRow[1], rainbow[0]);
+  //    singleLED(topRow[0], rainbow[1], 150);
+  //    ledmatrix.ShiftUp();
+  //    singleLED(topRow[2], rainbow[0]);
+  //    singleLED(topRow[1], rainbow[1]);
+  //    singleLED(topRow[0], rainbow[2], 150);
+  //    ledmatrix.ShiftUp();
+  //    singleLED(topRow[3], rainbow[0]);
+  //    singleLED(topRow[2], rainbow[1]);
+  //    singleLED(topRow[1], rainbow[2]);
+  //    singleLED(topRow[0], rainbow[3], 150);
+  //    ledmatrix.ShiftUp();
+  //    singleLED(topRow[4], rainbow[0]);
+  //    singleLED(topRow[3], rainbow[1]);
+  //    singleLED(topRow[2], rainbow[2]);
+  //    singleLED(topRow[1], rainbow[3]);
+  //    singleLED(topRow[0], rainbow[4], 150);
+  //    ledmatrix.ShiftUp();
+  //    singleLED(topRow[5], rainbow[0]);
+  //    singleLED(topRow[4], rainbow[1]);
+  //    singleLED(topRow[3], rainbow[2]);
+  //    singleLED(topRow[2], rainbow[3]);
+  //    singleLED(topRow[1], rainbow[4]);
+  //    singleLED(topRow[0], rainbow[5], 150);
+  //    ledmatrix.ShiftUp();
+  //    singleLED(topRow[6], rainbow[0]);
+  //    singleLED(topRow[5], rainbow[1]);
+  //    singleLED(topRow[4], rainbow[2]);
+  //    singleLED(topRow[3], rainbow[3]);
+  //    singleLED(topRow[2], rainbow[4]);
+  //    singleLED(topRow[1], rainbow[5]);
+  //    singleLED(topRow[0], rainbow[6], 500);
+  //    ledmatrix.ShiftRight();
+  //    FastLED.show();
 
-
+  // this is functional, but ShiftLeft and ShiftRight stall
+  for (int i = 0; i < 6; i++) {
     ledmatrix.ShiftUp();
-    singleLED(topRow[0], rainbow[0], 150);
-    ledmatrix.ShiftUp();
-    singleLED(topRow[1], rainbow[0]);
-    singleLED(topRow[0], rainbow[1], 150);
-    ledmatrix.ShiftUp();
-    singleLED(topRow[2], rainbow[0]);
-    singleLED(topRow[1], rainbow[1]);
-    singleLED(topRow[0], rainbow[2], 150);
-    ledmatrix.ShiftUp();
-    singleLED(topRow[3], rainbow[0]);
-    singleLED(topRow[2], rainbow[1]);
-    singleLED(topRow[1], rainbow[2]);
-    singleLED(topRow[0], rainbow[3], 150);
-    ledmatrix.ShiftUp();
-    singleLED(topRow[4], rainbow[0]);
-    singleLED(topRow[3], rainbow[1]);
-    singleLED(topRow[2], rainbow[2]);
-    singleLED(topRow[1], rainbow[3]);
-    singleLED(topRow[0], rainbow[4], 150);
-    ledmatrix.ShiftUp();
-    singleLED(topRow[5], rainbow[0]);
-    singleLED(topRow[4], rainbow[1]);
-    singleLED(topRow[3], rainbow[2]);
-    singleLED(topRow[2], rainbow[3]);
-    singleLED(topRow[1], rainbow[4]);
-    singleLED(topRow[0], rainbow[5], 150);
-    ledmatrix.ShiftUp();
-    singleLED(topRow[6], rainbow[0]);
-    singleLED(topRow[5], rainbow[1]);
-    singleLED(topRow[4], rainbow[2]);
-    singleLED(topRow[3], rainbow[3]);
-    singleLED(topRow[2], rainbow[4]);
-    singleLED(topRow[1], rainbow[5]);
-    singleLED(topRow[0], rainbow[6], 500);
-    ledmatrix.ShiftRight();
+    for (int j = 0; j <= i; j++) {
+      singleLED(topRow[i - j], rainbow[j]);
+    }
     FastLED.show();
-  */
+    delay(1000);
+  }
+
+  for (int i = 0; i < 6; i++) {
+    ledmatrix.ShiftLeft();
+    for (int j = 0; j <= i; j++) {
+      singleLED(rightRow[i - j], rainbow[j]);
+    }
+    FastLED.show();
+    delay(150);
+  }
+
+  for (int i = 0; i < 6; i++) {
+    ledmatrix.ShiftDown();
+    for (int j = 0; j <= i; j++) {
+      singleLED(bottomRow[i - j], rainbow[j]);
+    }
+    FastLED.show();
+    delay(150);
+  }
+
+  for (int i = 0; i < 6; i++) {
+    ledmatrix.ShiftRight();
+    for (int j = 0; j <= i; j++) {
+      singleLED(leftRow[i - j], rainbow[j]);
+    }
+    FastLED.show();
+    delay(150);
+  }
+
+  // just some test code for ShiftLeft and ShiftRight
+  //FastLED.clear();
+  //singleLED(248, CRGB::Red, 1000);
+  //ledmatrix.ShiftDown();
+  //FastLED.show();
+  //delay(1000);
+  //ledmatrix.ShiftRight();
+  //FastLED.show();
+  //delay(1000);
+  //ledmatrix.ShiftUp();
+  //FastLED.show();
+  //delay(1000);
+  //ledmatrix.ShiftLeft();
+  //FastLED.show();
+  //delay(1000);
 }
 
-void writeLostHandlerMouth(){
-// TODO: Figure out how to check with Serial if need to exit
-ledmatrix.DrawFilledRectangle(0, 0, 31, 7, CRGB::White);
+void writeLostHandlerMouth() {
+  // TODO: Figure out how to check with Serial if need to exit
+  ledmatrix.DrawFilledRectangle(0, 0, 31, 7, CRGB::White);
 
-if (ScrollingMsg.UpdateText() == -1)
-  ScrollingMsg.SetText((unsigned char *)handlerMouthText, sizeof(handlerMouthText) - 1);
-else
+  if (ScrollingMsg.UpdateText() == -1)
+    ScrollingMsg.SetText((unsigned char *)handlerMouthText, sizeof(handlerMouthText) - 1);
+  else
+    FastLED.show();
+  FastLED.delay(15);
+}
+
+void writeLostHandlerEyes() {
+  // TODO: Figure out how to check with Serial if need to exit
+  ledmatrix.DrawFilledRectangle(0, 0, 31, 7, CRGB::White);
+
+  if (ScrollingMsg.UpdateText() == -1)
+    ScrollingMsg.SetText((unsigned char *)handlerEyesText, sizeof(handlerEyesText) - 1);
+  else
+    FastLED.show();
+  FastLED.delay(15);
+}
+
+void writeLowBatteryEyes() {
+  FastLED.clear();
+  ledmatrix.DrawRectangle(8, 0, 9, 6, CRGB::White);
+  ledmatrix.DrawRectangle(10, 0, 11, 2, CRGB::White);
+  ledmatrix.DrawRectangle(13, 0, 17, 6, CRGB::White);
+  ledmatrix.DrawLine(14, 1, 14, 5, CRGB::White);
+  ledmatrix.DrawLine(19, 6, 19, 2, CRGB::White);
+  ledmatrix.DrawLine(20, 0, 20, 1, CRGB::White);
+  ledmatrix.DrawLine(21, 2, 21, 3, CRGB::White);
+  ledmatrix.DrawLine(22, 0, 22, 1, CRGB::White);
+  ledmatrix.DrawLine(23, 6, 23, 2, CRGB::White);
   FastLED.show();
-FastLED.delay(15);
+  delay(1000);
+  FastLED.clear();
+  drawPattern(chargeMouthOutline, CHG_MOUTH_O, CRGB::White);
+  FastLED.show();
+  delay(1000);
+}
+
+void writeLowBatteryMouth() {
+  FastLED.clear();
+  drawPattern(lowBatMouth, LOW_MOUTH, yellow);
+  FastLED.show();
+  delay(500);
+  ledmatrix.DrawRectangle(13, 0, 15, 1, CRGB::Red);
+  ledmatrix.DrawFilledRectangle(13, 3, 15, 7, CRGB::Red);
+  ledmatrix.DrawRectangle(17, 0, 19, 1, CRGB::Red);
+  ledmatrix.DrawFilledRectangle(17, 3, 19, 7, CRGB::Red);
+  FastLED.show();
+  delay(500);
 }
 
 // Purpose: Draws LEDs by running through the pixels, one by one, and seeing if they should be lit up according to their array
