@@ -44,6 +44,25 @@ void singleLED(int number, long int colour, int delaytime = 0) {
   }
 }
 
+// Purpose: Draws LEDs by running through the pixels, one by one, and seeing if they should be lit up according to their array
+// Accepts: uint16_t[] of your desired pattern, int size of the pattern array, long int hex code
+// Returns: nothing
+// For more details on how this works, see https://github.com/JaredTheWolf/OpenSourceProtogenCollection/wiki/Notes:-PROGMEM
+void drawPattern(uint16_t patternArray[], int patternSize, long int colour) {
+  // PGM comes into play here. For more info about PGM, see the declarations header or the wiki
+  uint16_t nextPixel; // holds current RAM value from PGM
+  int pixelCounter = 0; // increments when a pixel is placed
+  for (int i = 0; i < NUM_LEDS; i++) { // loop through LED in the matrix
+    for (int j = 0; j < patternSize; j++) { // check every element in the pattern array for the current LED
+      nextPixel = pgm_read_word(&patternArray[pixelCounter]); // pull element into RAM
+      if (i == nextPixel) { // if the pixel in the matrix matches the array element
+        leds[i] = colour; // turn the pixel the specified colour
+        pixelCounter++; // move to the next pixel
+      }
+    }
+  }
+}
+
 void setup() {
   // TODO: Serial bridge with RasPi
 
@@ -72,7 +91,7 @@ void loop() {
 
 void writeAttnEyes() {
   FastLED.clear();
-  drawPattern(attentionEyes, ATTN_EYES, red);
+  drawPattern(attentionEyes, ATTN_EYES, CRGB::Red);
   FastLED.show();
   delay(500);
   FastLED.clear();
@@ -83,7 +102,7 @@ void writeAttnEyes() {
 void writeAttnMouth() {
   /* attention mouth - this takes up a lot of space, consider replacing it with LEDText. https://github.com/AaronLiddiment/LEDText/issues/7 */
   FastLED.clear();
-  drawPattern(attentionMouth, ATTN_MOUTH, red);
+  drawPattern(attentionMouth, ATTN_MOUTH, CRGB::Red);
   FastLED.show();
   delay(500);
   FastLED.clear();
@@ -93,55 +112,55 @@ void writeAttnMouth() {
 
 void writeChgEyes() {
   FastLED.clear();
-  drawPattern(chargeEyes, CHG_EYES, yellow);
+  drawPattern(chargeEyes, CHG_EYES, CRGB::Yellow);
   FastLED.show();
   delay(500);
   for (int i = 0; i < 2; i++) {
-    drawPattern(chargeEyesRemove, CHG_EYES_R, black);
-    drawPattern(chargeEyesAdd, CHG_EYES_R, yellow);
+    drawPattern(chargeEyesRemove, CHG_EYES_R, CRGB::Black);
+    drawPattern(chargeEyesAdd, CHG_EYES_R, CRGB::Yellow);
     FastLED.show();
     delay(500);
     FastLED.clear();
-    drawPattern(chargeEyes, CHG_EYES, yellow);
+    drawPattern(chargeEyes, CHG_EYES, CRGB::Yellow);
     FastLED.show();
     delay(500);
   }
-  singleLED(12, yellow, 100);
-  singleLED(62, yellow, 100);
-  singleLED(88, yellow, 100);
-  singleLED(161, yellow, 100);
-  singleLED(234, yellow, 100);
-  singleLED(167, yellow, 500);
+  singleLED(12, CRGB::Yellow, 100);
+  singleLED(62, CRGB::Yellow, 100);
+  singleLED(88, CRGB::Yellow, 100);
+  singleLED(161, CRGB::Yellow, 100);
+  singleLED(234, CRGB::Yellow, 100);
+  singleLED(167, CRGB::Yellow, 500);
   FastLED.clear();
 }
 
 void writeChgMouth() {
   FastLED.clear();
-  drawPattern(chargeMouthOutline, CHG_MOUTH_O, 0xFFFFFF);
+  drawPattern(chargeMouthOutline, CHG_MOUTH_O, CRGB::White);
   FastLED.show();
   delay(750);
-  drawPattern(chargeMouthBar1, CHG_MOUTH_B, 0x00FF00);
+  drawPattern(chargeMouthBar1, CHG_MOUTH_B, CRGB::Green);
   FastLED.show();
   delay(200);
-  drawPattern(chargeMouthBar15, CHG_MOUTH_B, 0x00FF00);
+  drawPattern(chargeMouthBar15, CHG_MOUTH_B, CRGB::Green);
   FastLED.show();
   delay(200);
-  drawPattern(chargeMouthBar2, CHG_MOUTH_B, 0x00FF00);
+  drawPattern(chargeMouthBar2, CHG_MOUTH_B, CRGB::Green);
   FastLED.show();
   delay(200);
-  drawPattern(chargeMouthBar25, CHG_MOUTH_B, 0x00FF00);
+  drawPattern(chargeMouthBar25, CHG_MOUTH_B, CRGB::Green);
   FastLED.show();
   delay(200);
-  drawPattern(chargeMouthBar3, CHG_MOUTH_B, 0x00FF00);
+  drawPattern(chargeMouthBar3, CHG_MOUTH_B, CRGB::Green);
   FastLED.show();
   delay(200);
-  drawPattern(chargeMouthBar35, CHG_MOUTH_B, 0x00FF00);
+  drawPattern(chargeMouthBar35, CHG_MOUTH_B, CRGB::Green);
   FastLED.show();
   delay(200);
-  drawPattern(chargeMouthBar4, CHG_MOUTH_B, 0x00FF00);
+  drawPattern(chargeMouthBar4, CHG_MOUTH_B, CRGB::Green);
   FastLED.show();
   delay(200);
-  drawPattern(chargeMouthBar45, CHG_MOUTH_B, 0x00FF00);
+  drawPattern(chargeMouthBar45, CHG_MOUTH_B, CRGB::Green);
   FastLED.show();
   delay(750);
   FastLED.clear();
@@ -150,11 +169,11 @@ void writeChgMouth() {
 void writeCoffeeEyes() {
   FastLED.clear();
   drawPattern(coffeeEyesBlue, COF_EYES_B, purpleblue);
-  drawPattern(coffeeEyesWhite, COF_EYES_W, 0xFFFFFF);
+  drawPattern(coffeeEyesWhite, COF_EYES_W, CRGB::White);
   FastLED.show();
   delay(750);
-  drawPattern(coffeeEyesRemove, COF_EYES_R, black);
-  drawPattern(coffeeEyesAdd, COF_EYES_R, 0xFFFFFF);
+  drawPattern(coffeeEyesRemove, COF_EYES_R, CRGB::Black);
+  drawPattern(coffeeEyesAdd, COF_EYES_R, CRGB::White);
   FastLED.show();
   delay(750);
   FastLED.clear();
@@ -173,107 +192,107 @@ void writeCoffeeMouth() {
 
 void writeDniEyes() {
   FastLED.clear();
-  drawPattern(dniEyes, DNI_EYES, red);
+  drawPattern(dniEyes, DNI_EYES, CRGB::Red);
   FastLED.show();
   delay(1000);
-  drawPattern(dniEyes, DNI_EYES, 0xffffff);
+  drawPattern(dniEyes, DNI_EYES, CRGB::White);
   FastLED.show();
   delay (1000);
 }
 
 void writeErrorEyes() {
   FastLED.clear();
-  drawPattern(errEyesSt, ERR_EYES_S, red);
+  drawPattern(errEyesSt, ERR_EYES_S, CRGB::Red);
   FastLED.show();
   delay(1000);
-  drawPattern(errEyesR1, ERR_EYES_1, black);
-  drawPattern(errEyesA, ERR_EYES_1, red);
+  drawPattern(errEyesR1, ERR_EYES_1, CRGB::Black);
+  drawPattern(errEyesA, ERR_EYES_1, CRGB::Red);
   FastLED.show();
   delay(250);
   FastLED.clear();
-  drawPattern(errEyesSt, ERR_EYES_S, red);
+  drawPattern(errEyesSt, ERR_EYES_S, CRGB::Red);
   FastLED.show();
   delay(250);
-  drawPattern(errEyesR1, ERR_EYES_1, black);
-  drawPattern(errEyesA, ERR_EYES_1, red);
+  drawPattern(errEyesR1, ERR_EYES_1, CRGB::Black);
+  drawPattern(errEyesA, ERR_EYES_1, CRGB::Red);
   drawPattern(errEyesAGn, ERR_EYES_2, seafoam);
-  drawPattern(errEyesAB, ERR_EYES_2, deepblue);
+  drawPattern(errEyesAB, ERR_EYES_2, CRGB::Blue);
   FastLED.show();
   delay(100);
   FastLED.clear();
-  drawPattern(errEyesSt, ERR_EYES_S, red);
+  drawPattern(errEyesSt, ERR_EYES_S, CRGB::Red);
   drawPattern(errEyesAGn, ERR_EYES_2, seafoam);
-  drawPattern(errEyesAB, ERR_EYES_2, deepblue);
-  drawPattern(errEyesAY, ERR_EYES_Y, yellow); // very clearly does not display yellow -_-
+  drawPattern(errEyesAB, ERR_EYES_2, CRGB::Blue);
+  drawPattern(errEyesAY, ERR_EYES_Y, CRGB::Yellow); // very clearly does not display yellow -_-
   drawPattern(errEyesAGr, ERR_EYES_3, bluegray);
-  drawPattern(errEyesAP, ERR_EYES_3, purple);
+  drawPattern(errEyesAP, ERR_EYES_3, CRGB::Purple);
   FastLED.show();
   delay(250);
-  drawPattern(errEyesR2, ERR_EYES_2, black);
+  drawPattern(errEyesR2, ERR_EYES_2, CRGB::Black);
   FastLED.show();
   delay(250);
 }
 
 void writeCheckEyes() {
   FastLED.clear();
-  drawPattern(checkEyes1, CHK_EYES_1, green);
+  drawPattern(checkEyes1, CHK_EYES_1, CRGB::Green);
   FastLED.show();
   delay(250);
-  drawPattern(checkEyes2, CHK_EYES_M, green);
+  drawPattern(checkEyes2, CHK_EYES_M, CRGB::Green);
   FastLED.show();
   delay(250);
-  drawPattern(checkEyes3, CHK_EYES_M, green);
+  drawPattern(checkEyes3, CHK_EYES_M, CRGB::Green);
   FastLED.show();
   delay(250);
-  drawPattern(checkEyes4, CHK_EYES_L, green);
+  drawPattern(checkEyes4, CHK_EYES_L, CRGB::Green);
   FastLED.show();
   delay(1000);
 }
 
 void writeWrongEyes() {
   FastLED.clear();
-  ledmatrix.DrawLine(13, 7, 20, 0, red);
-  ledmatrix.DrawLine(13, 0, 15, 2, red);
-  ledmatrix.DrawLine(20, 7, 18, 5, red);
+  ledmatrix.DrawLine(13, 7, 20, 0, CRGB::Red);
+  ledmatrix.DrawLine(13, 0, 15, 2, CRGB::Red);
+  ledmatrix.DrawLine(20, 7, 18, 5, CRGB::Red);
   FastLED.show();
   delay(150);
   FastLED.clear();
   FastLED.show();
   delay(150);
-  ledmatrix.DrawLine(13, 7, 20, 0, red);
-  ledmatrix.DrawLine(13, 0, 15, 2, red);
-  ledmatrix.DrawLine(20, 7, 18, 5, red);
+  ledmatrix.DrawLine(13, 7, 20, 0, CRGB::Red);
+  ledmatrix.DrawLine(13, 0, 15, 2, CRGB::Red);
+  ledmatrix.DrawLine(20, 7, 18, 5, CRGB::Red);
   FastLED.show();
   delay(150);
   FastLED.clear();
   FastLED.show();
   delay(150);
-  ledmatrix.DrawLine(13, 7, 20, 0, red);
-  ledmatrix.DrawLine(13, 0, 15, 2, red);
-  ledmatrix.DrawLine(20, 7, 18, 5, red);
+  ledmatrix.DrawLine(13, 7, 20, 0, CRGB::Red);
+  ledmatrix.DrawLine(13, 0, 15, 2, CRGB::Red);
+  ledmatrix.DrawLine(20, 7, 18, 5, CRGB::Red);
   FastLED.show();
   delay(1000);
 }
 
 void writeIdleEyes() {
   FastLED.clear();
-  ledmatrix.DrawRectangle(3, 4, 4, 6, 0xFFFFFF);
-  ledmatrix.DrawRectangle(27, 4, 28, 6, 0xFFFFFF);
+  ledmatrix.DrawRectangle(3, 4, 4, 6, CRGB::White);
+  ledmatrix.DrawRectangle(27, 4, 28, 6, CRGB::White);
   FastLED.show();
   delay(3000);
   FastLED.clear();
-  ledmatrix.DrawRectangle(3, 4, 4, 5, 0xFFFFFF);
-  ledmatrix.DrawRectangle(27, 4, 28, 5, 0xFFFFFF);
+  ledmatrix.DrawRectangle(3, 4, 4, 5, CRGB::White);
+  ledmatrix.DrawRectangle(27, 4, 28, 5, CRGB::White);
   FastLED.show();
   delay(100);
   FastLED.clear();
-  ledmatrix.DrawRectangle(3, 4, 4, 4, 0xFFFFFF);
-  ledmatrix.DrawRectangle(27, 4, 28, 4, 0xFFFFFF);
+  ledmatrix.DrawRectangle(3, 4, 4, 4, CRGB::White);
+  ledmatrix.DrawRectangle(27, 4, 28, 4, CRGB::White);
   FastLED.show();
   delay(100);
   FastLED.clear();
-  ledmatrix.DrawRectangle(3, 4, 4, 5, 0xFFFFFF);
-  ledmatrix.DrawRectangle(27, 4, 28, 5, 0xFFFFFF);
+  ledmatrix.DrawRectangle(3, 4, 4, 5, CRGB::White);
+  ledmatrix.DrawRectangle(27, 4, 28, 5, CRGB::White);
   FastLED.show();
   delay(100);
 }
@@ -281,62 +300,62 @@ void writeIdleEyes() {
 void writeCryingEyes() {
   // this will probably just be shorter if I write it with int arrays
   FastLED.clear();
-  ledmatrix.DrawRectangle(3, 4, 4, 5, 0xFFFFFF);
-  ledmatrix.DrawRectangle(27, 4, 28, 5, 0xFFFFFF);
+  ledmatrix.DrawRectangle(3, 4, 4, 5, CRGB::White);
+  ledmatrix.DrawRectangle(27, 4, 28, 5, CRGB::White);
   FastLED.show();
   delay(1000);
-  ledmatrix.DrawLine(3, 3, 4, 3, deepblue);
-  ledmatrix.DrawLine(27, 3, 28, 3, deepblue);
+  ledmatrix.DrawLine(3, 3, 4, 3, CRGB::Blue);
+  ledmatrix.DrawLine(27, 3, 28, 3, CRGB::Blue);
   FastLED.show();
   delay(200);
   FastLED.clear();
-  ledmatrix.DrawRectangle(3, 4, 4, 5, 0xFFFFFF);
-  ledmatrix.DrawRectangle(27, 4, 28, 5, 0xFFFFFF);
-  ledmatrix.DrawLine(3, 2, 4, 2, deepblue);
-  ledmatrix.DrawLine(27, 2, 28, 2, deepblue);
+  ledmatrix.DrawRectangle(3, 4, 4, 5, CRGB::White);
+  ledmatrix.DrawRectangle(27, 4, 28, 5, CRGB::White);
+  ledmatrix.DrawLine(3, 2, 4, 2, CRGB::Blue);
+  ledmatrix.DrawLine(27, 2, 28, 2, CRGB::Blue);
   FastLED.show();
   delay(200);
   FastLED.clear();
-  ledmatrix.DrawRectangle(3, 4, 4, 5, 0xFFFFFF);
-  ledmatrix.DrawRectangle(27, 4, 28, 5, 0xFFFFFF);
-  ledmatrix.DrawLine(3, 3, 4, 3, deepblue);
-  ledmatrix.DrawLine(27, 3, 28, 3, deepblue);
-  ledmatrix.DrawLine(3, 1, 4, 1, deepblue);
-  ledmatrix.DrawLine(27, 1, 28, 1, deepblue);
+  ledmatrix.DrawRectangle(3, 4, 4, 5, CRGB::White);
+  ledmatrix.DrawRectangle(27, 4, 28, 5, CRGB::White);
+  ledmatrix.DrawLine(3, 3, 4, 3, CRGB::Blue);
+  ledmatrix.DrawLine(27, 3, 28, 3, CRGB::Blue);
+  ledmatrix.DrawLine(3, 1, 4, 1, CRGB::Blue);
+  ledmatrix.DrawLine(27, 1, 28, 1, CRGB::Blue);
   FastLED.show();
   delay(200);
   FastLED.clear();
-  ledmatrix.DrawRectangle(3, 4, 4, 5, 0xFFFFFF);
-  ledmatrix.DrawRectangle(27, 4, 28, 5, 0xFFFFFF);
-  ledmatrix.DrawLine(3, 2, 4, 2, deepblue);
-  ledmatrix.DrawLine(27, 2, 28, 2, deepblue);
-  ledmatrix.DrawLine(3, 0, 4, 0, deepblue);
-  ledmatrix.DrawLine(27, 0, 28, 0, deepblue);
+  ledmatrix.DrawRectangle(3, 4, 4, 5, CRGB::White);
+  ledmatrix.DrawRectangle(27, 4, 28, 5, CRGB::White);
+  ledmatrix.DrawLine(3, 2, 4, 2, CRGB::Blue);
+  ledmatrix.DrawLine(27, 2, 28, 2, CRGB::Blue);
+  ledmatrix.DrawLine(3, 0, 4, 0, CRGB::Blue);
+  ledmatrix.DrawLine(27, 0, 28, 0, CRGB::Blue);
   FastLED.show();
   delay(200);
   FastLED.clear();
-  ledmatrix.DrawRectangle(3, 4, 4, 5, 0xFFFFFF);
-  ledmatrix.DrawRectangle(27, 4, 28, 5, 0xFFFFFF);
-  ledmatrix.DrawLine(3, 1, 4, 1, deepblue);
-  ledmatrix.DrawLine(27, 1, 28, 1, deepblue);
+  ledmatrix.DrawRectangle(3, 4, 4, 5, CRGB::White);
+  ledmatrix.DrawRectangle(27, 4, 28, 5, CRGB::White);
+  ledmatrix.DrawLine(3, 1, 4, 1, CRGB::Blue);
+  ledmatrix.DrawLine(27, 1, 28, 1, CRGB::Blue);
   FastLED.show();
   delay(200);
   FastLED.clear();
-  ledmatrix.DrawRectangle(3, 4, 4, 5, 0xFFFFFF);
-  ledmatrix.DrawRectangle(27, 4, 28, 5, 0xFFFFFF);
-  ledmatrix.DrawLine(3, 0, 4, 0, deepblue);
-  ledmatrix.DrawLine(27, 0, 28, 0, deepblue);
+  ledmatrix.DrawRectangle(3, 4, 4, 5, CRGB::White);
+  ledmatrix.DrawRectangle(27, 4, 28, 5, CRGB::White);
+  ledmatrix.DrawLine(3, 0, 4, 0, CRGB::Blue);
+  ledmatrix.DrawLine(27, 0, 28, 0, CRGB::Blue);
   FastLED.show();
   delay(200);
 }
 
 void writeIdEyes() {
   FastLED.clear();
-  ledmatrix.DrawRectangle(6, 0, 25, 7, deepblue);
-  ledmatrix.DrawLine(19, 3, 15, 3, deepblue);
-  ledmatrix.DrawLine(15, 5, 23, 5, deepblue);
-  ledmatrix.DrawRectangle(9, 4, 10, 5, deepblue);
-  ledmatrix.DrawRectangle(8, 1, 11, 2, deepblue);
+  ledmatrix.DrawRectangle(6, 0, 25, 7, CRGB::Blue);
+  ledmatrix.DrawLine(19, 3, 15, 3, CRGB::Blue);
+  ledmatrix.DrawLine(15, 5, 23, 5, CRGB::Blue);
+  ledmatrix.DrawRectangle(9, 4, 10, 5, CRGB::Blue);
+  ledmatrix.DrawRectangle(8, 1, 11, 2, CRGB::Blue);
   FastLED.show();
   delay(750);
   FastLED.clear();
@@ -374,61 +393,61 @@ void writeJoyEyes(bool laughing) {
 
 void writePhoneEyes() {
   FastLED.clear();
-  ledmatrix.DrawFilledRectangle(8, 1, 11, 3, deepblue);
-  ledmatrix.DrawFilledRectangle(20, 1, 23, 3, deepblue);
-  ledmatrix.DrawFilledRectangle(21, 3, 10, 5, deepblue);
-  leds[180] = deepblue;
-  leds[75] = deepblue;
+  ledmatrix.DrawFilledRectangle(8, 1, 11, 3, CRGB::Blue);
+  ledmatrix.DrawFilledRectangle(20, 1, 23, 3, CRGB::Blue);
+  ledmatrix.DrawFilledRectangle(21, 3, 10, 5, CRGB::Blue);
+  leds[180] = CRGB::Blue;
+  leds[75] = CRGB::Blue;
   FastLED.show();
   delay(250);
-  leds[51] = green;
-  leds[52] = green;
-  leds[58] = green;
-  leds[70] = green;
-  leds[73] = green;
-  leds[182] = green;
-  leds[185] = green;
-  leds[197] = green;
-  leds[203] = green;
-  leds[204] = green;
+  leds[51] = CRGB::Green;
+  leds[52] = CRGB::Green;
+  leds[58] = CRGB::Green;
+  leds[70] = CRGB::Green;
+  leds[73] = CRGB::Green;
+  leds[182] = CRGB::Green;
+  leds[185] = CRGB::Green;
+  leds[197] = CRGB::Green;
+  leds[203] = CRGB::Green;
+  leds[204] = CRGB::Green;
   FastLED.show();
   delay(250);
-  ledmatrix.DrawLine(26, 5, 26, 6, green);
-  ledmatrix.DrawLine(25, 7, 24, 7, green);
-  ledmatrix.DrawLine(6, 7, 7, 7, green);
-  ledmatrix.DrawLine(5, 6, 5, 5, green);
+  ledmatrix.DrawLine(26, 5, 26, 6, CRGB::Green);
+  ledmatrix.DrawLine(25, 7, 24, 7, CRGB::Green);
+  ledmatrix.DrawLine(6, 7, 7, 7, CRGB::Green);
+  ledmatrix.DrawLine(5, 6, 5, 5, CRGB::Green);
   FastLED.show();
   delay(250);
 }
 
 void writeSleepyEyes() {
   FastLED.clear();
-  ledmatrix.DrawLine(28, 5, 25, 5, 0xFFFFFF);
-  ledmatrix.DrawLine(6, 5, 3, 5, 0xFFFFFF);
+  ledmatrix.DrawLine(28, 5, 25, 5, CRGB::White);
+  ledmatrix.DrawLine(6, 5, 3, 5, CRGB::White);
   FastLED.show();
   delay(1000);
   FastLED.clear();
-  drawPattern(zzzEyes1, ZZZ_EYES_S, 0xFFFFFF);
+  drawPattern(zzzEyes1, ZZZ_EYES_S, CRGB::White);
   FastLED.show();
   delay(300);
-  drawPattern(zzzEyesA1, ZZZ_EYES_M, 0xFFFFFF);
-  drawPattern(zzzEyesR1, ZZZ_EYES_M, black);
-  FastLED.show();
-  delay(300);
-  FastLED.clear();
-  drawPattern(zzzEyes1, ZZZ_EYES_S, 0xFFFFFF);
-  drawPattern(zzzEyesA2, ZZZ_EYES_M, 0xFFFFFF);
-  drawPattern(zzzEyesR2, ZZZ_EYES_M, black);
+  drawPattern(zzzEyesA1, ZZZ_EYES_M, CRGB::White);
+  drawPattern(zzzEyesR1, ZZZ_EYES_M, CRGB::Black);
   FastLED.show();
   delay(300);
   FastLED.clear();
-  drawPattern(zzzEyes1, ZZZ_EYES_S, 0xFFFFFF);
-  drawPattern(zzzEyesA3, ZZZ_EYES_M, 0xFFFFFF);
-  drawPattern(zzzEyesR3, ZZZ_EYES_M, black);
+  drawPattern(zzzEyes1, ZZZ_EYES_S, CRGB::White);
+  drawPattern(zzzEyesA2, ZZZ_EYES_M, CRGB::White);
+  drawPattern(zzzEyesR2, ZZZ_EYES_M, CRGB::Black);
   FastLED.show();
   delay(300);
   FastLED.clear();
-  drawPattern(zzzEyes1, ZZZ_EYES_S, 0xFFFFFF);
+  drawPattern(zzzEyes1, ZZZ_EYES_S, CRGB::White);
+  drawPattern(zzzEyesA3, ZZZ_EYES_M, CRGB::White);
+  drawPattern(zzzEyesR3, ZZZ_EYES_M, CRGB::Black);
+  FastLED.show();
+  delay(300);
+  FastLED.clear();
+  drawPattern(zzzEyes1, ZZZ_EYES_S, CRGB::White);
   FastLED.show();
   delay(1000);
 }
@@ -582,7 +601,7 @@ void writeLowBatteryEyes() {
 
 void writeLowBatteryMouth() {
   FastLED.clear();
-  drawPattern(lowBatMouth, LOW_MOUTH, yellow);
+  drawPattern(lowBatMouth, LOW_MOUTH, CRGB::Yellow);
   FastLED.show();
   delay(500);
   ledmatrix.DrawRectangle(13, 0, 15, 1, CRGB::Red);
@@ -712,21 +731,37 @@ void writeUwUEyes() {
   delay(1000);
 }
 
-// Purpose: Draws LEDs by running through the pixels, one by one, and seeing if they should be lit up according to their array
-// Accepts: uint16_t[] of your desired pattern, int size of the pattern array, long int hex code
-// Returns: nothing
-// For more details on how this works, see https://github.com/JaredTheWolf/OpenSourceProtogenCollection/wiki/Notes:-PROGMEM
-void drawPattern(uint16_t patternArray[], int patternSize, long int colour) {
-  // PGM comes into play here. For more info about PGM, see the declarations header or the wiki
-  uint16_t nextPixel; // holds current RAM value from PGM
-  int pixelCounter = 0; // increments when a pixel is placed
-  for (int i = 0; i < NUM_LEDS; i++) { // loop through LED in the matrix
-    for (int j = 0; j < patternSize; j++) { // check every element in the pattern array for the current LED
-      nextPixel = pgm_read_word(&patternArray[pixelCounter]); // pull element into RAM
-      if (i == nextPixel) { // if the pixel in the matrix matches the array element
-        leds[i] = colour; // turn the pixel the specified colour
-        pixelCounter++; // move to the next pixel
-      }
-    }
+void writeHeartEyes() {
+  FastLED.clear();
+  drawPattern(heartEyes, HRT_EYES, CRGB::Red);
+  FastLED.show();
+  delay(500);
+  ledmatrix.ShiftUp();
+  FastLED.show();
+  delay(500);
+}
+
+void writeBurgerEyes() {
+  FastLED.clear();
+  ledmatrix.DrawLine(14, 7, 17, 7, orangebrown);
+  ledmatrix.DrawLine(13, 6, 18, 6, orangebrown);
+  ledmatrix.DrawLine(12, 5, 19, 5, orangebrown);
+  ledmatrix.DrawLine(12, 4, 19, 4, CRGB::Red);
+  ledmatrix.DrawLine(12, 3, 19, 3, darkbrown);
+  ledmatrix.DrawLine(12, 2, 19, 2, CRGB::Green);
+  ledmatrix.DrawLine(12, 1, 19, 1, orangebrown);
+  ledmatrix.DrawLine(13, 0, 18, 0, orangebrown);
+  FastLED.show();
+  delay(500);
+}
+
+void writeHungryMouth() {
+  FastLED.clear();
+  if (ScrollingMsg.UpdateText() == -1) {
+    ScrollingMsg.SetText(hungryText, 15);
+    ScrollingMsg.SetTextColrOptions(COLR_RGB | COLR_SINGLE, 0x00, 0x00, 0xff);
   }
+  else
+    FastLED.show();
+  delay(40);
 }
