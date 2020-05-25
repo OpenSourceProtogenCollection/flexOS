@@ -59,17 +59,7 @@ const long int green = 0x00FF00;
 #define ZZZ_EYES_M 10
 
 // arrays used by drawPattern, can I shrink these to uint8?
-/* ABOUT PROGMEM (PGM)
- *  
- *  If you are using a microcontroller with a limited amount of RAM, such as the Arduino Nano, you will very quickly run out of space when creating LED arrays
- *  The solution is to store these values in ROM and pull them into RAM as you need them. This is PROGMEM's job.
- *  When getting a value that has been given the PROGMEM modifier, you must use one of the provided macros to access the value. It's not always clear which macro you should use, as it's
- *  a bit abstract (as is all memory mapping), but for the scope of this program pgm_read_word(&array[i]) is all you need.
- *  
- *  If you are using a model with an abundance of RAM and don't want to deal with memory abstraction, you can probably ignore this little keyword.
- *  
- *  For more info on PROGMEM, see https://www.arduino.cc/reference/en/language/variables/utilities/progmem/ and https://www.nongnu.org/avr-libc/user-manual/group__avr__pgmspace.html
- */
+// PGM comes into play here. For more info about PGM, see the declarations header or the wiki
 
 // exclamation marks
 const uint16_t attentionEyes[] PROGMEM = {64, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 79, 120, 121, 122, 123, 124, 125, 127, 128, 130, 131, 132, 133, 134, 135, 176, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 191};
@@ -136,6 +126,15 @@ const uint16_t zzzEyesR3[] PROGMEM = {41, 44, 51, 53, 57, 60, 67, 70, 73, 76};
 // char arrays used by LEDText
 const unsigned char returnToRoomText[] = "      Returning to room - do not interact";
 const unsigned char coffeeText[] = "      COFFEE PLS...";
-const unsigned char attnText[] = "! ATTN !"; // currently unused
+const unsigned char attnText[] = "! ATTN !"; // currently unused  
+const unsigned char handlerMouthText[] = { EFFECT_FRAME_RATE "\x00"
+EFFECT_BACKGND_LEAVE EFFECT_RGB "\xFF\x00\x00"
+EFFECT_SCROLL_LEFT "      LOST HANDLER"
+};
+
+
+// arrays used by loading anim
+const int topRow[] = {136, 135, 120, 119, 104, 103, 88};
+const uint32_t rainbow[] = {CRGB::Red, CRGB::Orange, CRGB::Yellow, CRGB::Green, CRGB::Blue, CRGB::Indigo, CRGB::Violet};
 
 #endif
