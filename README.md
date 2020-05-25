@@ -27,8 +27,9 @@
 - An image overlay program. For Windows there's OVERLAY2, but it's pretty persistent nagware. There's a better program out there by the name of Image Overlay Utility, but I'm not going to link it here due to (potentially false) positive malware alerts on it. If you go Googling for this, I reiterate that I'm not liable for any damage done. With that said, it seems to work fine on my machine, I have not seen any suspicious activity.
 
 # Notes
-- This is a WORK IN PROGRESS. I'm very much learning and working with this. A wiki will be made when I have time.
+- This is a WORK IN PROGRESS. I'm very much learning and working with this.
 - These are Subwuffer's files in their entirety. You are welcome to use them as-is, but I highly encourage diving into the code and customizing things. I've made it very easy through code comments and the wiki to find your way around ^^
+- I do not own the protogen species. For more info on the species and what can and cannot be used in your protogen, please visit [the creator's website](https://www.primaproto.com/). At the time of writing, this site is down for maintenance, but a [backup](https://web.archive.org/web/20191025141630/https://www.primaproto.com/) can be found on the Wayback Machine.
 
 # License
 This code is licensed under GPLv3. TL;DR you must redistribute the source code of any derivative works under this same license. For more info, see the LICENSE file.
