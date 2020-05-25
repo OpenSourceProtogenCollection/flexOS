@@ -21,7 +21,7 @@
 	- You must also have the following libraries installed:
 		- [https://github.com/FastLED/FastLED](FastLED) for drawing arrays of LEDs (can and should be installed from Library Manager)
 		- [https://github.com/AaronLiddiment/LEDText](LEDText) for scrolling text
-		- [https://github.com/AaronLiddiment/LEDMatrix](LEDMatrix) for drawing shapes
+		- [https://github.com/AaronLiddiment/LEDMatrix](LEDMatrix) for drawing shapes. I actually recommend using [jorgen-vikinggod's fork](https://jorgen-vikinggod.github.io/LEDMatrix/) for added functionality.
 	- If you're coding and flashing on the go, ArduinoDroid works quite well
 - [https://pixilart.com/draw](PixilArt) (web app)
 - An image overlay program. For Windows there's OVERLAY2, but it's pretty persistent nagware. There's a better program out there by the name of Image Overlay Utility, but I'm not going to link it here due to (potentially false) positive malware alerts on it. If you go Googling for this, I reiterate that I'm not liable for any damage done. With that said, it seems to work fine on my machine, I have not seen any suspicious activity.
