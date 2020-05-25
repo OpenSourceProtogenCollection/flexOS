@@ -21,15 +21,11 @@
 #define declarations_h
 
 // colour codes
-const long int black = 0x000000;
-const long int red = 0xff0000;
-const long int yellow = 0xffd900;
 const long int purpleblue = 0x1b139e;
 const long int seafoam = 0x009688;
-const long int deepblue = 0x0000FF;
-const long int purple = 0x7d0099;
 const long int bluegray = 0x6e6e6e;
-const long int green = 0x00FF00;
+const long int orangebrown = 0x804c09;
+const long int darkbrown = 0xff3700;
 
 // array sizes used by drawPattern
 #define ATTN_EYES 42
@@ -58,6 +54,7 @@ const long int green = 0x00FF00;
 #define ZZZ_EYES_S 39
 #define ZZZ_EYES_M 10
 #define LOW_MOUTH 42
+#define HRT_EYES 32
 
 // arrays used by drawPattern, can I shrink these to uint8?
 // PGM comes into play here. For more info about PGM, see the declarations header or the wiki
@@ -122,6 +119,7 @@ const uint16_t zzzEyesR2[] PROGMEM = {106, 109, 114, 116, 122, 125, 130, 133, 13
 const uint16_t zzzEyesA3[] PROGMEM = {40, 43, 52, 55, 56, 58, 69, 71, 72, 75};
 const uint16_t zzzEyesR3[] PROGMEM = {41, 44, 51, 53, 57, 60, 67, 70, 73, 76};
 const uint16_t lowBatMouth[] PROGMEM = {24, 27, 34, 35, 36, 38, 39, 41, 42, 43, 44, 45, 46, 48, 49, 51, 52, 53, 59, 60, 63, 184, 187, 194, 195, 196, 198, 199, 201, 202, 203, 204, 205, 206, 208, 209, 211, 212, 213, 219, 220, 223};
+const uint16_t heartEyes[] PROGMEM = {20, 21, 25, 26, 27, 28, 34, 35, 36, 37, 41, 42, 43, 44, 52, 53, 202, 203, 211, 212, 213, 214, 218, 219, 220, 221, 227, 228, 229, 230, 234, 235};
 
 // * end drawPattern arrays *
 
@@ -137,6 +135,7 @@ const unsigned char handlerEyesText[] = { EFFECT_FRAME_RATE "\x00"
 EFFECT_BACKGND_LEAVE EFFECT_RGB "\xFF\x00\x00"
 EFFECT_SCROLL_LEFT "      HELP"
 };
+const unsigned char hungryText[] = "      Hungry...";
 
 
 // arrays used by loading anim
