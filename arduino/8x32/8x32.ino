@@ -593,6 +593,125 @@ void writeLowBatteryMouth() {
   delay(500);
 }
 
+void writeHappyMouth() {
+  FastLED.clear();
+  ledmatrix.DrawLine(2, 6, 8, 1, CRGB::White);
+  ledmatrix.DrawLine(8, 1, 10, 4, CRGB::White);
+  ledmatrix.DrawLine(10, 4, 12, 1, CRGB::White);
+  ledmatrix.DrawLine(12, 1, 15, 4, CRGB::White);
+  ledmatrix.DrawLine(16, 4, 19, 1, CRGB::White);
+  ledmatrix.DrawLine(19, 1, 21, 4, CRGB::White);
+  ledmatrix.DrawLine(21, 4, 23, 1, CRGB::White);
+  ledmatrix.DrawLine(29, 6, 23, 1, CRGB::White);
+  FastLED.show();
+  delay(4000);
+  ledmatrix.DrawRectangle(15, 3, 16, 2, CRGB::White);
+  FastLED.show();
+  delay(50);
+  ledmatrix.DrawFilledRectangle(14, 2, 17, 0, CRGB::White);
+  leds[145] = CRGB::White;
+  leds[110] = CRGB::White;
+  ledmatrix.DrawLine(14, 0, 17, 0, CRGB::White);
+  FastLED.show();
+  delay(50);
+  ledmatrix.DrawLine(11, 0, 20, 0, CRGB::White);
+  leds[161] = CRGB::White;
+  leds[94] = CRGB::White;
+  FastLED.show();
+  delay(1000);
+  ledmatrix.DrawLine(11, 0, 13, 0, CRGB::Black);
+  ledmatrix.DrawLine(18, 0, 20, 0, CRGB::Black);
+  leds[161] = CRGB::Black;
+  leds[94] = CRGB::Black;
+  FastLED.show();
+  delay(50);
+  ledmatrix.DrawLine(13, 1, 18, 1, CRGB::Black);
+  ledmatrix.DrawLine(13, 0, 18, 0, CRGB::Black);
+  leds[141] = CRGB::Black;
+  leds[114] = CRGB::Black;
+  FastLED.show();
+  delay(50);
+}
+
+void writeSadMouth() {
+  FastLED.clear();
+  ledmatrix.DrawLine(2, 1, 8, 4, CRGB::White);
+  ledmatrix.DrawLine(8, 4, 10, 1, CRGB::White);
+  ledmatrix.DrawLine(10, 1, 12, 4, CRGB::White);
+  ledmatrix.DrawLine(12, 4, 15, 1, CRGB::White);
+  ledmatrix.DrawLine(16, 1, 19, 4, CRGB::White);
+  ledmatrix.DrawLine(19, 4, 21, 1, CRGB::White);
+  ledmatrix.DrawLine(21, 1, 23, 4, CRGB::White);
+  ledmatrix.DrawLine(29, 1, 23, 4, CRGB::White);
+  // lol
+  FastLED.show();
+  delay(3000);
+  ledmatrix.ShiftDown();
+  FastLED.show();
+  delay(1000);
+}
+
+void writeSurprisedMouth() {
+  FastLED.clear();
+  ledmatrix.DrawLine(5, 3, 5, 6, CRGB::Red);
+  leds[209] = CRGB::Red;
+  ledmatrix.DrawLine(26, 3, 26, 6, CRGB::Red);
+  leds[46] = CRGB::Red;
+  ledmatrix.DrawRectangle(13, 1, 17, 2, CRGB::White);
+  ledmatrix.DrawLine(14, 3, 16, 3, CRGB::White);
+  leds[132] = CRGB::White;
+  FastLED.show();
+  delay(200);
+  ledmatrix.DrawLine(26, 0, 26, 7, CRGB::Black);
+  ledmatrix.DrawLine(5, 0, 5, 7, CRGB::Black);
+  FastLED.show();
+  delay(200);
+  ledmatrix.DrawLine(5, 3, 5, 6, CRGB::Red);
+  leds[209] = CRGB::Red;
+  ledmatrix.DrawLine(26, 3, 26, 6, CRGB::Red);
+  leds[46] = CRGB::Red;
+  FastLED.show();
+  delay(100);
+  ledmatrix.DrawLine(26, 0, 26, 7, CRGB::Black);
+  ledmatrix.DrawLine(5, 0, 5, 7, CRGB::Black);
+  FastLED.show();
+  delay(100);
+  ledmatrix.DrawLine(5, 3, 5, 6, CRGB::Red);
+  leds[209] = CRGB::Red;
+  ledmatrix.DrawLine(26, 3, 26, 6, CRGB::Red);
+  leds[46] = CRGB::Red;
+  FastLED.show();
+  delay(2000);
+}
+
+void writeOwOEyes() {
+  FastLED.clear();
+  ledmatrix.DrawRectangle(3, 4, 5, 6, CRGB::White);
+  ledmatrix.DrawRectangle(26, 4, 28, 6, CRGB::White);
+  FastLED.show();
+  delay(1000);
+}
+
+void writeOwOMouth() {
+  FastLED.clear();
+  ledmatrix.DrawLine(10, 4, 13, 1, CRGB::White);
+  ledmatrix.DrawLine(13, 1, 15, 3, CRGB::White);
+  ledmatrix.DrawLine(16, 3, 18, 1, CRGB::White);
+  ledmatrix.DrawLine(18, 1, 21, 4, CRGB::White);
+  FastLED.show();
+  delay(1000);
+}
+
+void writeUwUEyes() {
+  FastLED.clear();
+  ledmatrix.DrawRectangle(3, 4, 5, 6, CRGB::White);
+  leds[217] = CRGB::Black;
+  ledmatrix.DrawRectangle(26, 4, 28, 6, CRGB::White);
+  leds[38] = CRGB::Black;
+  FastLED.show();
+  delay(1000);
+}
+
 // Purpose: Draws LEDs by running through the pixels, one by one, and seeing if they should be lit up according to their array
 // Accepts: uint16_t[] of your desired pattern, int size of the pattern array, long int hex code
 // Returns: nothing
