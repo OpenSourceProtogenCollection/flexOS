@@ -40,13 +40,7 @@ void setup() {
 }
 
 void loop() {
-  static uint8_t startIndex = 0; // creating an index for FillLEDsFromPaletteColors
-  startIndex = startIndex + 1; //motion speed
-
-  FillLEDsFromPaletteColors(startIndex, notePattern, NOTE_SIZE);
-
-  FastLED.show();
-  FastLED.delay(1000 / UPDATES_PER_SECOND);
+  // TODO: Serial connection to RasPI
 }
 
 // Purpose: Dynamic rainbow palette fills pattern array... because who needs drawPattern when you're a  G A M E R
@@ -77,4 +71,17 @@ void drawPattern(int patternArray[], int patternSize, long int colour) {
       }
     }
   }
+}
+
+void drawNoteRegular() {
+  drawPattern(notePattern, NOTE_SIZE, CRGB::Red);
+}
+
+void drawNoteRave() {
+  startIndex = startIndex + 1; //motion speed
+
+  FillLEDsFromPaletteColors(startIndex, notePattern, NOTE_SIZE);
+
+  FastLED.show();
+  FastLED.delay(1000 / UPDATES_PER_SECOND);
 }
