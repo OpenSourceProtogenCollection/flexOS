@@ -2,9 +2,9 @@
  The full files created for Subwuffer the Protogen, to help anyone create their own protogen fursuit (GPLv3)
  
 # Current Status
-Arduino: Matrices all fully coded. More patterns may be added in the future, but other parts of the project ae more pertinent.
+Arduino: Matrices all fully coded. More patterns may be added in the future, but other parts of the project are more pertinent.
 
-RaspPi: Just starting code
+RasPi: Just starting code
 
 Suit:
 	- Materials: Waiting to order fur, searching for thermoforming plastic, brainstorming helmet decisions
