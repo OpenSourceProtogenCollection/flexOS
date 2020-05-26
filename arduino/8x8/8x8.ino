@@ -32,8 +32,6 @@ CRGB leds[NUM_LEDS];
 void setup() {
   // setting up the WS2812B on pin 6
   FastLED.addLeds<NEOPIXEL, 6>(leds, NUM_LEDS);
-  // draw the pattern
-  drawPattern(bassClefPattern, CLEF_SIZE, red);
   // set brightness so it isn't blinding
   // this will need to be adjusted depending on how tinted your covers are
   FastLED.setBrightness(BRIGHTNESS);
