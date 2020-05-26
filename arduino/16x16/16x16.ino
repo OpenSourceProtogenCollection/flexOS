@@ -23,9 +23,9 @@
  /_/    \_\_|  \__,_|\__,_|_|_| |_|     \___/ \_/\_/ \___/ */
 
 #include "config.h" // this file includes our libraries and device-specific variables
+#include "declarations.h"
 
 // creating the matrix using LEDMatrix
-// note that height and width are flipped in this example due to TILE_TYPE
 cLEDMatrix <MATRIX_TILE_WIDTH, MATRIX_TILE_HEIGHT, MATRIX_TILE_TYPE> ledmatrix;
 // creating a pointer to the matrix so FastLED can still operate
 CRGB *leds = ledmatrix[0];
@@ -64,61 +64,73 @@ void setup() {
   // instantiate FastLED
   FastLED.addLeds<MATRIX_BOARD_CHIP, LED_PIN, COLOR_ORDER>(ledmatrix[0], ledmatrix.Size());
   FastLED.setBrightness(BRIGHTNESS);
-  FastLED.clear();
-  FastLED.show();
 }
 
 void loop() {
+  // TODO: Serial connection to RasPi
+  drawNotesRegular();
+}
+
+// Purpose: Dynamic rainbow palette fills pattern array... because who needs drawPattern when you're a  G A M E R
+// Accepts: Index of palette to be used, int[] of your desired pattern, int size of the pattern array
+// Returns: nothing
+// Credits to FastLED for most of this code: https://github.com/FastLED/FastLED/blob/master/examples/ColorPalette/ColorPalette.ino
+void FillLEDsFromPaletteColors(uint8_t colorIndex)
+{
+  uint8_t brightness = 255;
+  for (int i = 0; i < NUM_LEDS; i++) { // run through the entire array, pixel by pixel
+    if (leds[i]) { // if the index of this pixel is not black
+      leds[i] = ColorFromPalette(RainbowColors_p, colorIndex, brightness, LINEARBLEND);
+      colorIndex += 3;
+    }
+  }
+}
+
+void drawNotesRegular() {
+
   FastLED.clear();
-  ledmatrix.DrawFilledRectangle(5, 3, 7, 6, CRGB::Red);
-  ledmatrix.DrawLine(8, 3, 8, 13, CRGB::Red);
-  ledmatrix.DrawRectangle(9, 13, 10, 12, CRGB::Red);
-  ledmatrix.DrawRectangle(10, 11, 11, 10, CRGB::Red);
+  drawPattern(noteBase, BASE_NOTE, CRGB::Red);
   FastLED.show();
   delay(2000);
-  ledmatrix.DrawRectangle(12, 2, 13, 3, CRGB::Red);
+  drawPattern(noteRight1, SMALL_HEAD, CRGB::Red);
   FastLED.show();
   delay(250);
-  leds[212] = CRGB::Red;
-  leds[213] = CRGB::Red;
-  leds[235] = CRGB::Red;
+  drawPattern(noteRight2, SMALL_STEM, CRGB::Red);
   FastLED.show();
   delay(250);
-  ledmatrix.DrawRectangle(1, 10, 2, 11, CRGB::Red);
+  drawPattern(noteLeft1, SMALL_HEAD, CRGB::Red);
   FastLED.show();
   delay(250);
-  leds[34] = CRGB::Red;
-  leds[35] = CRGB::Red;
-  leds[60] = CRGB::Red;
+  drawPattern(noteLeft2, SMALL_STEM, CRGB::Red);
   FastLED.show();
   delay(1000);
 
-  for(int i = 0; i < 2; i++){
-  ledmatrix.DrawLine(1, 10, 2, 10, CRGB::Red);
-  leds[61] = CRGB::Black;
-  leds[28] = CRGB::Black;
-  leds[33] = CRGB::Black;
-  leds[60] = CRGB::Red;
-  ledmatrix.DrawLine(12, 2, 13, 2, CRGB::Black);
-  leds[203] = CRGB::Red;
-  leds[214] = CRGB::Red;
-  leds[234] = CRGB::Red;
-  leds[235] = CRGB::Black;
-  FastLED.show();
-  delay(250);
-  
-  ledmatrix.DrawLine(1, 10, 2, 10, CRGB::Black);
-  leds[61] = CRGB::Red;
-  leds[28] = CRGB::Red;
-  leds[33] = CRGB::Red;
-  leds[60] = CRGB::Black;
-  ledmatrix.DrawLine(12, 2, 13, 2, CRGB::Red);
-  leds[203] = CRGB::Black;
-  leds[234] = CRGB::Black;
-  leds[214] = CRGB::Black;
-  leds[235] = CRGB::Red;
-  FastLED.show();
-  delay(250);
+  for (int i = 0; i < 2; i++) {
+    ledmatrix.DrawLine(1, 10, 2, 10, CRGB::Red);
+    leds[61] = CRGB::Black;
+    leds[28] = CRGB::Black;
+    leds[33] = CRGB::Black;
+    leds[60] = CRGB::Red;
+    ledmatrix.DrawLine(12, 2, 13, 2, CRGB::Black);
+    leds[203] = CRGB::Red;
+    leds[214] = CRGB::Red;
+    leds[234] = CRGB::Red;
+    leds[235] = CRGB::Black;
+    FastLED.show();
+    delay(250);
+
+    ledmatrix.DrawLine(1, 10, 2, 10, CRGB::Black);
+    leds[61] = CRGB::Red;
+    leds[28] = CRGB::Red;
+    leds[33] = CRGB::Red;
+    leds[60] = CRGB::Black;
+    ledmatrix.DrawLine(12, 2, 13, 2, CRGB::Red);
+    leds[203] = CRGB::Black;
+    leds[234] = CRGB::Black;
+    leds[214] = CRGB::Black;
+    leds[235] = CRGB::Red;
+    FastLED.show();
+    delay(250);
   }
 
   ledmatrix.DrawLine(1, 10, 2, 10, CRGB::Red);
@@ -132,7 +144,7 @@ void loop() {
   ledmatrix.DrawRectangle(12, 2, 13, 3, CRGB::Black);
   FastLED.show();
   delay(250);
-    leds[212] = CRGB::Black;
+  leds[212] = CRGB::Black;
   leds[213] = CRGB::Black;
   leds[235] = CRGB::Black;
   FastLED.show();
@@ -145,4 +157,17 @@ void loop() {
   leds[60] = CRGB::Black;
   FastLED.show();
   delay(1000);
+}
+
+void drawNotesRave() {
+  FastLED.clear();
+  drawPattern(noteBase, BASE_NOTE, CRGB::Red);
+  drawPattern(noteRight1, SMALL_HEAD, CRGB::Red);
+  drawPattern(noteLeft1, SMALL_HEAD, CRGB::Red);
+  drawPattern(noteRight2, SMALL_STEM, CRGB::Red);
+  drawPattern(noteLeft2, SMALL_STEM, CRGB::Red);
+  startIndex = startIndex + 2; //motion speed
+  FillLEDsFromPaletteColors(startIndex);
+  FastLED.show();
+  FastLED.delay(1000 / UPDATES_PER_SECOND);
 }
