@@ -7,7 +7,9 @@ Arduino: Matrices all fully coded. More patterns may be added in the future, but
 RasPi: Just starting code
 
 Suit:
+
 	- Materials: Waiting to order fur, searching for thermoforming plastic, brainstorming helmet decisions
+	
 	- Assembly: Not started
 	
 Wiki: Up to date
