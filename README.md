@@ -30,6 +30,7 @@
 - This is a WORK IN PROGRESS. I'm very much learning and working with this.
 - These are Subwuffer's files in their entirety. You are welcome to use them as-is, but I highly encourage diving into the code and customizing things. I've made it very easy through code comments and the wiki to find your way around ^^
 - I do not own the protogen species. For more info on the species and what can and cannot be used in your protogen, please visit [the creator's website](https://www.primaproto.com/). At the time of writing, this site is down for maintenance, but a [backup](https://web.archive.org/web/20191025141630/https://www.primaproto.com/) can be found on the Wayback Machine.
+- Big thanks to [Jting-F](https://www.youtube.com/channel/UCz8RfRGTDPPoexpyAg22kbg) for the inspiration and guidance along the way <3
 
 # Getting in touch
 I love to see what others make! If you have any questions or just want to chat about this project, you can find me on [Telegram](https://t.me/JaredTamana), [Discord](https://discordapp.com/users/375613991294205964), [Twitter](https://twitter.com/JaredTamana), or via email at [jaredtamana@gmail.com](mailto:jaredtamana@gmail.com). Please do try to contact me on Telegram first, that's where I'm most active.
