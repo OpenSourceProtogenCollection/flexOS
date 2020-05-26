@@ -8,9 +8,9 @@ RasPi: Just starting code
 
 Suit:
 
-	- Materials: Waiting to order fur, searching for thermoforming plastic, brainstorming helmet decisions
+- Materials: Waiting to order fur, searching for thermoforming plastic, brainstorming helmet decisions
 	
-	- Assembly: Not started
+- Assembly: Not started
 	
 Wiki: Up to date
 
