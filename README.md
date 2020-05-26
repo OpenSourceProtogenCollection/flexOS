@@ -1,5 +1,13 @@
 # Open Source Protogen Collection
  The full files created for Subwuffer the Protogen, to help anyone create their own protogen fursuit (GPLv3)
+ 
+# Current Status
+Arduino: Matrices all fully coded. More patterns may be added in the future, but other parts of the project ae more pertinent.
+RaspPi: Just starting code
+Suit:
+	- Materials: Waiting to order fur, searching for thermoforming plastic, brainstorming helmet decisions
+	- Assembly: Not started
+Wiki: Up to date
 
 # Requirements
 ## Hardware
