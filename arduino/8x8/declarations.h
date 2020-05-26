@@ -15,6 +15,9 @@
     along with OSPC.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+// for colour switching
+#define UPDATES_PER_SECOND 100
+
 // declaring colours here 
 long int red = 0xff0000;
 
