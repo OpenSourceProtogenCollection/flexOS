@@ -139,10 +139,7 @@ const unsigned char hungryText[] = "      Hungry...";
 
 
 // arrays used by loading anim
-const int topRow[] = {136, 135, 120, 119, 104, 103, 88};
-const int rightRow[] = {89, 90, 91, 92, 93, 94, 95};
-const int bottomRow[] = {96, 111, 112, 127, 128, 143};
-const int leftRow[] = {142, 141, 140, 139, 138, 137, 136};
+const int sequence[] = {136, 135, 120, 119, 104, 103, 88, 89, 90, 91, 92, 93, 94, 95, 96, 111, 112, 127, 128, 143, 142, 141, 140, 139, 138, 137, 136};
 const uint32_t rainbow[] = {CRGB::Red, CRGB::Orange, CRGB::Yellow, CRGB::Green, CRGB::Blue, CRGB::Indigo, CRGB::Violet};
 
 #endif

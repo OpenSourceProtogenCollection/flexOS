@@ -66,6 +66,8 @@ void drawPattern(uint16_t patternArray[], int patternSize, long int colour) {
 void setup() {
   // TODO: Serial bridge with RasPi
 
+  Serial.begin(9600);
+
   // instantiate FastLED
   FastLED.addLeds<MATRIX_BOARD_CHIP, LED_PIN, COLOR_ORDER>(ledmatrix[0], ledmatrix.Size());
   FastLED.setBrightness(BRIGHTNESS);
@@ -504,58 +506,14 @@ void writeLoadingEyes() {
   //    ledmatrix.ShiftRight();
   //    FastLED.show();
 
-  // this is functional, but ShiftLeft and ShiftRight stall
-  for (int i = 0; i < 6; i++) {
-    ledmatrix.ShiftUp();
+  // this is functional, but ShiftLeft and ShiftRight stall due to a lack of RAM. I'll have to rewrite it for manual shifting.
+  for (int i = 0; i < 26; i++) {
     for (int j = 0; j <= i; j++) {
-      singleLED(topRow[i - j], rainbow[j]);
+      singleLED(sequence[i - j], rainbow[j]);
     }
     FastLED.show();
     delay(1000);
   }
-
-  for (int i = 0; i < 6; i++) {
-    ledmatrix.ShiftLeft();
-    for (int j = 0; j <= i; j++) {
-      singleLED(rightRow[i - j], rainbow[j]);
-    }
-    FastLED.show();
-    delay(150);
-  }
-
-  for (int i = 0; i < 6; i++) {
-    ledmatrix.ShiftDown();
-    for (int j = 0; j <= i; j++) {
-      singleLED(bottomRow[i - j], rainbow[j]);
-    }
-    FastLED.show();
-    delay(150);
-  }
-
-  for (int i = 0; i < 6; i++) {
-    ledmatrix.ShiftRight();
-    for (int j = 0; j <= i; j++) {
-      singleLED(leftRow[i - j], rainbow[j]);
-    }
-    FastLED.show();
-    delay(150);
-  }
-
-  // just some test code for ShiftLeft and ShiftRight
-  //FastLED.clear();
-  //singleLED(248, CRGB::Red, 1000);
-  //ledmatrix.ShiftDown();
-  //FastLED.show();
-  //delay(1000);
-  //ledmatrix.ShiftRight();
-  //FastLED.show();
-  //delay(1000);
-  //ledmatrix.ShiftUp();
-  //FastLED.show();
-  //delay(1000);
-  //ledmatrix.ShiftLeft();
-  //FastLED.show();
-  //delay(1000);
 }
 
 void writeLostHandlerMouth() {
