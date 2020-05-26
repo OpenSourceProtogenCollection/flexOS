@@ -18,6 +18,8 @@
 // for colour switching
 #define UPDATES_PER_SECOND 100
 
+static uint8_t startIndex = 0; // creating an index for FillLEDsFromPaletteColors
+
 // here we define the size of the pattern arrays found below so they can be used in drawPattern
 #define NOTE_SIZE 22
 #define CLEF_SIZE 14
