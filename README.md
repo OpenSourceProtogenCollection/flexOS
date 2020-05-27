@@ -2,9 +2,9 @@
  The full files created for Subwuffer the Protogen, to help anyone create their own protogen fursuit (GPLv3)
  
 # Current Status
-Arduino: Matrices all fully coded. More patterns may be added in the future, but other parts of the project are more pertinent.
+Arduino: Matrices all fully coded. Serial has been implemented fully. Still having issues with the writeLoading pattern. More patterns may be added in the future, but other parts of the project are more pertinent at this time.
 
-RasPi: Just starting code
+RasPi: Code most of the way done, waiting on reed switches to test
 
 Suit:
 
@@ -12,7 +12,7 @@ Suit:
 	
 - Assembly: Not started
 	
-Wiki: Up to date
+Wiki: Working on stuff for RasPi
 
 # Requirements
 ## Hardware
@@ -38,6 +38,7 @@ Wiki: Up to date
 	- If you're coding and flashing on the go, ArduinoDroid works quite well
 - [https://pixilart.com/draw](PixilArt) (web app)
 - An image overlay program. For Windows there's OVERLAY2, but it's pretty persistent nagware. There's a better program out there by the name of Image Overlay Utility, but I'm not going to link it here due to (potentially false) positive malware alerts on it. If you go Googling for this, I reiterate that I'm not liable for any damage done. With that said, it seems to work fine on my machine, I have not seen any suspicious activity. If you would like me to screenshot you overlays of your pixel art, shoot me a [Telegram message](https://t.me/JaredTamana).
+- A Linux-flashed SD card for your Raspberry Pi. I recommend Raspian. For more details on software for your installation, check the wiki.
 
 # Notes
 - I do not support macOS or Linux at this time. The reason I don't support macOS is because I don't own a macOS machine. However, the reason I don't support Linux is because the IDE SUCKS on Linux. There's no Library Manager, the Import Libraries tool is broken, your headers and libraries can't just be in the same folder as your sketch, the auto-format tool behaves strangely, shift-backspace is a nightmare... I could go on, but in short, just don't code Arduino on Linux. It hurts me to not support this because I love Linux and it sucks to have to switch between my Windows machine and my RPi constantly, but until Arduino fixes their IDE, I can't use it.
