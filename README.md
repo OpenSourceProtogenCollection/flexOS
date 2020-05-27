@@ -14,7 +14,7 @@ Suit:
 	
 - Assembly: Not started
 	
-Wiki: Working on stuff for RasPi
+Wiki: Up to date, will update when next part of project is done on my end
 
 # Requirements
 ## Hardware
