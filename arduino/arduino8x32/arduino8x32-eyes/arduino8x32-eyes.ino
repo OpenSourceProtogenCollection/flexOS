@@ -63,8 +63,10 @@ void drawPattern(uint16_t patternArray[], int patternSize, long int colour) {
   }
 }
 
+// pattern-writing functions start here
+
 void writeAttnEyes() {
-  while (true) {
+  while (true) { // infinite loop
     FastLED.clear();
     drawPattern(attentionEyes, ATTN_EYES, CRGB::Red);
     FastLED.show();
@@ -72,8 +74,8 @@ void writeAttnEyes() {
     FastLED.clear();
     FastLED.show();
     FastLED.delay(500);
-    if (Serial.available() > 0)
-      break;
+    if (Serial.available() > 0) // if a new Serial command has been issued
+      break; // exit back to the switch statement
   }
 }
 
@@ -686,7 +688,6 @@ void writeInternalError() {
     } else {
       FastLED.show();
       FastLED.delay(20);
-
     }
     if (Serial.available() > 0)
       break;
@@ -694,8 +695,7 @@ void writeInternalError() {
 }
 
 void setup() {
-  // TODO: Serial bridge with RasPi
-
+  // start Serial connection for emote switching
   Serial.begin(9600);
 
   // instantiate FastLED
@@ -707,20 +707,16 @@ void setup() {
   ScrollingMsg.SetFont(MatriseFontData);
   ScrollingMsg.Init(&ledmatrix, ledmatrix.Width(), ScrollingMsg.FontHeight() + 1, 0, 0);
 
+  // make sure the matrix is clear before we go any further
   FastLED.clear();
   FastLED.show();
 }
 
 void loop() {
-  /* TODO:
-    decide if attn is being rewritten
-    Serial bridge with RasPi
-  */
-
-  if (Serial.available() > 0) {
-    patternToWrite = Serial.read();
+  if (Serial.available() > 0) { // if there's a character in the Serial buffer
+    patternToWrite = Serial.read(); // get the character and store it
     Serial.print("Got: ");
-    Serial.println(patternToWrite);
+    Serial.println(patternToWrite); // just debug strings
     switch (patternToWrite) {
       case 48:
         writeIdEyes();
@@ -766,6 +762,7 @@ void loop() {
       //        case 101:
       //        writeLoadingEyes();
       //        break;
+      // broken due to RAM issues, WIP
       case 102:
         writeLostHandlerEyes();
         break;
@@ -794,5 +791,4 @@ void loop() {
         break;
     }
   }
-
 }
