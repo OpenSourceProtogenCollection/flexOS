@@ -23,10 +23,10 @@ Wiki: Up to date, will update when next part of project is done on my end
 	- These can be found cheaply on AliExpress, but you can buy the more power-efficient versions from Adafruit
 - Power sources
 	- You'll need to do your own calculations as to how much power you'll need. I ended up going with 4 NiMH AA batteries, which gives 4.8V for every 4-battery holder
-- Arduino
-	- I went with Nanos, but these may be a bit limited in memory. This one is up to you. Again, cheap ones can be found on AliExpress	
+- Arduino (or other avr microcontrollers)
+	- I went with Nanos, but these may be a bit limited in memory, so I'd recommend ESP32s. This one is up to you. Again, cheap ones can be found on AliExpress	
 - Raspberry Pi
-	- This one is only if you want to switch emotes in real-time. I went with a 3B
+	- This one is only if you want to switch emotes in real-time. You will need wireless and the extra GPIO, so get either a 3B+ or newer, or a 1B+ or a 2B+ with a wireless adaptor. I went with a 2B+ with a wireless adapter. Don't get a Pi A or Pi B, there aren't enough GPIO pins.
 - Hall-effect sensors or reed switches (only for emote switching)
 - 220 Ohm resistors, wires etc
 
