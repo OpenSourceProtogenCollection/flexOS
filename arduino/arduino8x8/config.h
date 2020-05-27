@@ -15,7 +15,10 @@
     along with OSPC.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+#ifndef config_h
+#define config_h
 #include <FastLED.h>
 
 #define NUM_LEDS 64
 #define BRIGHTNESS 32 // adjust this based on the tint of your covers
+#endif
