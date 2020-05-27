@@ -1,19 +1,19 @@
 /*
     This file is part of The Open Source Protogen Collection (OSPC).
-
-    OSPC is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    OSPC is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with OSPC.  If not, see <https://www.gnu.org/licenses/>.
-*/
+ 
+ OSPC is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ 
+ OSPC is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with OSPC.  If not, see <https://www.gnu.org/licenses/>.
+ */
 
 /*                 _       _
      /\           | |     (_)
@@ -82,14 +82,81 @@ void setup() {
 
 void loop() {
   /* TODO:
-      finish rest of patterns
-      decide if attn is being rewritten
-      Serial bridge with RasPi
-  */
+   decide if attn is being rewritten
+   Serial bridge with RasPi
+   */
 
-  //  // patterns begin here. while testing, all patterns will go in this sketch. later they'll go into separate sketches depending on which patterns go where
+  if (Serial.available() > 0) {
+    String patternToWrite = Serial.readStringUntil('\n');
+  }
 
-}
+  switch(patternToWrite) {
+  case "attn":
+    writeAttnEyes();
+    break;
+  case "chg":
+    writeChgEyes();
+    break;
+  case "coffee":
+    writeCoffeeEyes();
+    break;
+  case "dni":
+    writeDniEyes();
+    break;
+  case "error":
+    writeErrorEyes();
+    break;
+  case "check":
+    writeCheckEyes();
+    break;
+  case "wrong":
+    writeWrongEyes();
+    break;
+  case "idle":
+    writeIdleEyes();
+    break;
+  case "cry":
+    writeCryingEyes();
+    break;
+  case "id":
+    writeIdEyes();
+    break;
+  case "joy":
+    writeJoyEyes(false);
+    break;
+  case "laugh": 
+    writeJoyEyes(true);
+    break;
+  case "phone":
+    writePhoneEyes();
+    break;
+  case "sleep":
+    writeSleepyEyes();
+    break;
+  case "load":
+    writeLoadingeEyes();
+    break;
+  case "lost":
+    writeLostHandlerEyes();
+    break;
+  case "low":
+    writeLowBatteryEyes();
+    break;
+  case "owo":
+    writeOwoEyes();
+    break;
+  case "uwu":
+    writeUwuEyes();
+    break;
+  case "heart":
+    writeHeartEyes();
+    break;
+  case "hungry":
+    writeHungryEyes();
+    break;
+  default:
+    writeInternalError();
+  }
 
 void writeAttnEyes() {
   FastLED.clear();
@@ -225,7 +292,7 @@ void writeErrorEyes() {
   drawPattern(errEyesSt, ERR_EYES_S, CRGB::Red);
   drawPattern(errEyesAGn, ERR_EYES_2, seafoam);
   drawPattern(errEyesAB, ERR_EYES_2, CRGB::Blue);
-  drawPattern(errEyesAY, ERR_EYES_Y, CRGB::Yellow); // very clearly does not display yellow -_-
+  drawPattern(errEyesAY, ERR_EYES_Y, CRGB::Yellow);
   drawPattern(errEyesAGr, ERR_EYES_3, bluegray);
   drawPattern(errEyesAP, ERR_EYES_3, CRGB::Purple);
   FastLED.show();
@@ -372,7 +439,8 @@ void writeJoyEyes(bool laughing) {
   if (laughing) {
     eyeSpeed1 = 200;
     eyeSpeed2 = 150;
-  } else {
+  } 
+  else {
     eyeSpeed1 = 1000;
     eyeSpeed2 = 1000;
   }
@@ -455,7 +523,7 @@ void writeSleepyEyes() {
 }
 
 void writeLoadingEyes() {
-  /* loading eyes - currently broken due to library issue */
+  /* loading eyes - currently broken due to RAM usage */
 
 
   FastLED.clear();
@@ -718,6 +786,17 @@ void writeHungryMouth() {
   if (ScrollingMsg.UpdateText() == -1) {
     ScrollingMsg.SetText(hungryText, 15);
     ScrollingMsg.SetTextColrOptions(COLR_RGB | COLR_SINGLE, 0x00, 0x00, 0xff);
+  }
+  else
+    FastLED.show();
+  delay(40);
+}
+
+void writeInternalError() {
+  FastLED.clear();
+    if (ScrollingMsg.UpdateText() == -1) {
+    ScrollingMsg.SetText(internalErrorText, 22);
+    ScrollingMsg.SetTextColrOptions(COLR_RGB | COLR_SINGLE, 0xFF, 0x00, 0x00);
   }
   else
     FastLED.show();

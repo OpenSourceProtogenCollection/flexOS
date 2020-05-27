@@ -136,10 +136,13 @@ EFFECT_BACKGND_LEAVE EFFECT_RGB "\xFF\x00\x00"
 EFFECT_SCROLL_LEFT "      HELP"
 };
 const unsigned char hungryText[] = "      Hungry...";
-
+const unsigned char internalErrorText[] = "      Err: pattern not found";
 
 // arrays used by loading anim
 const int sequence[] = {136, 135, 120, 119, 104, 103, 88, 89, 90, 91, 92, 93, 94, 95, 96, 111, 112, 127, 128, 143, 142, 141, 140, 139, 138, 137, 136};
 const uint32_t rainbow[] = {CRGB::Red, CRGB::Orange, CRGB::Yellow, CRGB::Green, CRGB::Blue, CRGB::Indigo, CRGB::Violet};
+
+// for RasPi serial communication
+String patternToWrite;
 
 #endif
