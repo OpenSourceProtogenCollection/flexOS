@@ -4,7 +4,7 @@
  Please check the wiki to get started.
  
 # Current Status
-Arduino: Matrices all fully coded. Serial has been implemented fully. Still having issues with the writeLoading pattern. More patterns may be added in the future, but other parts of the project are more pertinent at this time.
+Arduino: Matrices all fully coded. Serial has been implemented fully. Still having issues with the writeLoading pattern. Refactoring some messy (LEDMatrix) code. More patterns may be added in the future, but other parts of the project are more pertinent at this time.
 
 RasPi: Code most of the way done, waiting on reed switches to test
 
