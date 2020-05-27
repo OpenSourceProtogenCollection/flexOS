@@ -1,5 +1,6 @@
 # Open Source Protogen Collection
  The full files created for Subwuffer the Protogen, to help anyone create their own protogen fursuit (GPLv3)
+ Please check the wiki to get started.
  
 # Current Status
 Arduino: Matrices all fully coded. Serial has been implemented fully. Still having issues with the writeLoading pattern. More patterns may be added in the future, but other parts of the project are more pertinent at this time.
