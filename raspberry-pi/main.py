@@ -50,61 +50,64 @@ visorMouth.flush()
 # serial write functions begin here
 
 def writeAttn(): # might not include the mouth, not sure
-    visorEyes.write(b"attn\n") # priority 4, left thumb
+    visorEyes.write(b"1") # priority 4, left thumb
 
 def writeChg():
-    visorEyes.write(b"chg\n") # priority 4, left index
+    visorEyes.write(b"2") # priority 4, left index
 
 def writeLow():
-    visorEyes.write(b"low\n") # priority 5, left middle
+    visorEyes.write(b"g") # priority 5, left middle
 
 def writeLost():
-    visorEyes.write(b"lost\n") # priority 5, left ring
+    visorEyes.write(b"f") # priority 5, left ring
 
 def writeDni():
-    visorEyes.write(b"dni\n") # priority 5, left small
+    visorEyes.write(b"4") # priority 5, left small
 
 def writeIdle():
-    visorEyes.write(b"idle\n") # priority 5, right thumb
+    visorEyes.write(b"8") # priority 5, right thumb
     
 def writeCheck():
-    visorEyes.write(b"check\n") # priority 4, right index
+    visorEyes.write(b"6") # priority 4, right index
 
 def writeWrong():
-    visorEyes.write(b"wrong\n") # priority 4, right middle
+    visorEyes.write(b"7") # priority 4, right middle
 
 def writeId():
-    visorEyes.write(b"id\n") # priority 4, right ring
+    visorEyes.write(b"0") # priority 4, right ring
 
 def writeJoy():
-    visorEyes.write(b"joy\n") # priority 4, right small
+    visorEyes.write(b"a") # priority 4, right small
 
 def writeLoad():
-    visorEyes.write(b"load\n") # priority 3, left collar
+    visorEyes.write(b"e") # priority 3, left collar
     
 def writeHungry():
-    visorEyes.write(b"hungry\n") # priority 3, left beltline
+    visorEyes.write(b"k") # priority 3, left beltline
 
 def writeError():
-    visorEyes.write(b"error\n") # priority 3, right beltline
+    visorEyes.write(b"5") # priority 3, right beltline
 
 def writeLaugh():
-    visorEyes.write(b"laugh\n") # priority 3, left hip
+    visorEyes.write(b"b") # priority 3, left hip
 
 def writeSleep():
-    visorEyes.write(b"sleep\n") # priority 3, right hip
+    visorEyes.write(b"d") # priority 3, right hip
 
 def writeOwo():
-    visorEyes.write(b"owo\n") # priority 3, right collar
+    visorEyes.write(b"h") # priority 3, right collar
     
 def writeHeart():
-    visorEyes.write(b"heart\n") # priority 2
+    visorEyes.write(b"j") # priority 2
 
 def writeCoffee():
-    visorEyes.write(b"coffee\n") # priority 1
+    visorEyes.write(b"3") # priority 1
 
 def writeUwu():
-    visorEyes.write(b"uwu\n") # priority 1
+    visorEyes.write(b"i") # priority 1
 
 def writePhone():
-    visorEyes.write(b"phone\n") # priority 1
+    visorEyes.write(b"c") # priority 1
+
+def writeCry():
+    visorEyes.write(b"9")
