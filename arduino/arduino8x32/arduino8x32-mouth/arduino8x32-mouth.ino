@@ -256,35 +256,22 @@ void writeSadMouth() {
 void writeSurpriseMouth() {
   while (true) {
     FastLED.clear();
-    ledmatrix.DrawLine(5, 3, 5, 6, CRGB::Red);
-    leds[209] = CRGB::Red;
-    ledmatrix.DrawLine(26, 3, 26, 6, CRGB::Red);
-    leds[46] = CRGB::Red;
-    ledmatrix.DrawRectangle(13, 1, 17, 2, CRGB::White);
-    ledmatrix.DrawLine(14, 3, 16, 3, CRGB::White);
-    leds[132] = CRGB::White;
+    drawPattern(surpriseMouth1, SUR_MOUTH_1, CRGB::White);
+    drawPattern(surpriseMouth2, SUR_MOUTH_2, CRGB::Red);
     FastLED.show();
-    delay(200);
-    ledmatrix.DrawLine(26, 0, 26, 7, CRGB::Black);
-    ledmatrix.DrawLine(5, 0, 5, 7, CRGB::Black);
+    FastLED.delay(50);
+    drawPattern(surpriseMouth2, SUR_MOUTH_2, CRGB::Black);
     FastLED.show();
-    delay(200);
-    ledmatrix.DrawLine(5, 3, 5, 6, CRGB::Red);
-    leds[209] = CRGB::Red;
-    ledmatrix.DrawLine(26, 3, 26, 6, CRGB::Red);
-    leds[46] = CRGB::Red;
+    FastLED.delay(100);
+    drawPattern(surpriseMouth2, SUR_MOUTH_2, CRGB::Red);
     FastLED.show();
     FastLED.delay(100);
     if (Serial.available() > 0)
       break;
-    ledmatrix.DrawLine(26, 0, 26, 7, CRGB::Black);
-    ledmatrix.DrawLine(5, 0, 5, 7, CRGB::Black);
+    drawPattern(surpriseMouth2, SUR_MOUTH_2, CRGB::Black);
     FastLED.show();
-    delay(100);
-    ledmatrix.DrawLine(5, 3, 5, 6, CRGB::Red);
-    leds[209] = CRGB::Red;
-    ledmatrix.DrawLine(26, 3, 26, 6, CRGB::Red);
-    leds[46] = CRGB::Red;
+    FastLED.delay(100);
+    drawPattern(surpriseMouth2, SUR_MOUTH_2, CRGB::Red);
     FastLED.show(); FastLED.delay(500);
     if (Serial.available() > 0)
       break;
@@ -302,10 +289,7 @@ void writeSurpriseMouth() {
 
 void writeOwoMouth() {
   FastLED.clear();
-  ledmatrix.DrawLine(10, 4, 13, 1, CRGB::White);
-  ledmatrix.DrawLine(13, 1, 15, 3, CRGB::White);
-  ledmatrix.DrawLine(16, 3, 18, 1, CRGB::White);
-  ledmatrix.DrawLine(18, 1, 21, 4, CRGB::White);
+  drawPattern(owoMouth, OWO_MOUTH, CRGB::White);
   FastLED.show();
 }
 

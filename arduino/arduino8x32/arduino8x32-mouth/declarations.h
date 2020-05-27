@@ -37,6 +37,9 @@ const long int bluegray = 0x6e6e6e;
 #define ERR_2 10 // green, blue, remove #2
 #define ERR_Y 7 // yellow
 #define ERR_3 4 // purple, gray
+#define OWO_MOUTH 12
+#define SUR_MOUTH_1 12
+#define SUR_MOUTH_2 10
 
 // arrays used by drawPattern, can I shrink these to uint8?
 // PGM comes into play here. For more info about PGM, see the declarations header or the wiki
@@ -67,7 +70,9 @@ const uint16_t errAP[] PROGMEM = {90, 91, 99, 100}; // purple
 const uint16_t errAGr[] PROGMEM = {67, 74, 75, 76}; // gray
 // second removal (effect)
 const uint16_t errR2[] PROGMEM = {84, 90, 91, 101, 102, 134, 140, 156, 163, 164};
-// checkmark
+const uint16_t owoMouth[] PROGMEM = {84, 92, 98, 110, 114, 124, 131, 141, 145, 157, 163, 171};
+const uint16_t surpriseMouth1[] PROGMEM = {113, 114, 124, 125, 126, 129, 130, 131, 132, 140, 141, 142, 145, 146};
+const uint16_t surpriseMouth2[] PROGMEM = {49, 51, 52, 53, 54, 209, 211, 212, 213, 214};
 
 // * end drawPattern arrays *
 
