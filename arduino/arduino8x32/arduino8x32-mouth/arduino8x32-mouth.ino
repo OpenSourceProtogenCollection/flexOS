@@ -383,7 +383,7 @@ void writeError() {
   }
 }
 
-void writeInternalError() {
+void writeInternalError() { // displays hungry text as well, investigating
   while (true) {
     FastLED.clear();
     if (ScrollingMsg.UpdateText() == -1) {
@@ -481,7 +481,7 @@ void loop() {
         writeLostHandlerMouth();
         break;
       case 103:
-        writeBlank();
+        writeLowBatteryMouth();
         break;
       case 104:
         writeOwoMouth();
