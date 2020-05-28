@@ -388,14 +388,12 @@ void writeBlank() {
 }
 
 void setup() {
-  // TODO: Serial bridge with RasPi
-
+  // open serial connection
   Serial.begin(9600);
 
   // instantiate FastLED
   FastLED.addLeds<MATRIX_BOARD_CHIP, LED_PIN, COLOR_ORDER>(ledmatrix[0], ledmatrix.Size());
   FastLED.setBrightness(BRIGHTNESS);
-  Serial.begin(9600);
 
   // instantiate LEDText
   ScrollingMsg.SetFont(MatriseFontData);
@@ -406,11 +404,6 @@ void setup() {
 }
 
 void loop() {
-  /* TODO:
-    decide if attn is being rewritten
-    Serial bridge with RasPi
-  */
-
   if (Serial.available() > 0) {
     patternToWrite = Serial.read();
     //Serial.print("Got: ");
