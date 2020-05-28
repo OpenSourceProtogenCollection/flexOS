@@ -40,7 +40,7 @@ void setup() {
 }
 
 void loop() {
-  // TODO: Serial connection to RasPI
+  // Nothing
 }
 
 // Purpose: Dynamic rainbow palette fills pattern array... because who needs drawPattern when you're a  G A M E R
@@ -79,9 +79,7 @@ void drawNoteRegular() {
 
 void drawNoteRave() {
   startIndex = startIndex + 1; //motion speed
-
   FillLEDsFromPaletteColors(startIndex, notePattern, NOTE_SIZE);
-
   FastLED.show();
   FastLED.delay(1000 / UPDATES_PER_SECOND);
 }
