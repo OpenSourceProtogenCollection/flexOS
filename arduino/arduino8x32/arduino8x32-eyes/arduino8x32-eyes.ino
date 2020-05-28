@@ -701,7 +701,6 @@ void setup() {
   // instantiate FastLED
   FastLED.addLeds<MATRIX_BOARD_CHIP, LED_PIN, COLOR_ORDER>(ledmatrix[0], ledmatrix.Size());
   FastLED.setBrightness(BRIGHTNESS);
-  Serial.begin(9600);
 
   // instantiate LEDText
   ScrollingMsg.SetFont(MatriseFontData);
@@ -720,6 +719,7 @@ void loop() {
     switch (patternToWrite) {
       case 48:
         writeIdEyes();
+        break;
       case 49:
         writeAttnEyes();
         break;
