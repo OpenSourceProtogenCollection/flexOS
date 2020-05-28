@@ -26,7 +26,7 @@ Wiki: Up to date, will update when next part of project is done on my end
 - Arduino (or other avr microcontrollers)
 	- I went with Nanos, but these may be a bit limited in memory, so I'd recommend ESP32s. This one is up to you. Again, cheap ones can be found on AliExpress	
 - Raspberry Pi
-	- This one is only if you want to switch emotes in real-time. You will need wireless and the extra GPIO, so get either a 3B+ or newer, or a 1B+ or a 2B+ with a wireless adaptor. I went with a 2B+ with a wireless adapter. Don't get a Pi A or Pi B, there aren't enough GPIO pins.
+	- This one is only if you want to switch emotes in real-time. You will need wireless and the extra GPIO, so get either a 3B+ or newer, or a 1B+ or a 2B+ with a wireless adapter. I went with a 2B+ with a wireless adapter. Don't get a Pi A or Pi B, there aren't enough GPIO pins.
 - Hall-effect sensors or reed switches (only for emote switching)
 - 220 Ohm resistors, wires etc
 
