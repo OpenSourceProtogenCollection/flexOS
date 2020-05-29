@@ -733,7 +733,7 @@ void loop() {
         writeDniEyes();
         break;
       case 53:
-        writeErrorEyes();
+        writeError();
         break;
       case 54:
         writeCheckEyes();
