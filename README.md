@@ -6,15 +6,15 @@
 # Current Status
 Arduino: Matrices all fully coded. Serial has been implemented fully. Still having issues with the writeLoading pattern. Refactoring some messy (LEDMatrix) code. More patterns may be added in the future, but other parts of the project are more pertinent at this time.
 
-RasPi: Code most of the way done, waiting on reed switches to test
+RasPi: Main coding done, just waiting on additional microcontrollers to test multiple ttyUSBs.
 
 Suit:
 
-- Materials: Waiting to order fur, searching for thermoforming plastic, brainstorming helmet decisions
+- Materials: Waiting to order fur, ordering thermoforming plastic, brainstorming helmet decisions
 	
 - Assembly: Not started
 	
-Wiki: Up to date, will update when next part of project is done on my end
+Wiki: Working on updating RasPi documentation
 
 # Requirements
 ## Hardware
