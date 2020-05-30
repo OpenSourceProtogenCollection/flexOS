@@ -3,6 +3,10 @@
  
  Please check the wiki to get started.
  
+# Quick Build Video
+
+![Watch the video here](https://i.postimg.cc/d0mJMbHL/screenshot-22.png)(https://youtu.be/kCo-e5A9jBQ)
+ 
 # Current Status
 Arduino: Matrices all fully coded. Serial has been implemented fully. Still having issues with the writeLoading pattern. Refactoring some messy (LEDMatrix) code. More patterns may be added in the future, but other parts of the project are more pertinent at this time.
 
