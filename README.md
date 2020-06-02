@@ -14,15 +14,15 @@ RasPi: Main coding done, just waiting on additional microcontrollers to test mul
 
 Suit:
 
-- Materials: Waiting to order fur, ordering thermoforming plastic, brainstorming helmet decisions
+- Materials: Fur ordered, waiting on quote for thermoforming plastic, waiting on 3D model commission before ordering from Kaiborg
 	
-- Assembly: Not started
+- Assembly: DTD assembled. Feetpaws foamed, might still tweak some stuff on them.
 	
-Wiki: Working on updating RasPi documentation
+Wiki: Should be up-to-date.
 
 # Requirements
 ## Hardware
-- WS2812B boards
+- WS2812B boards (or other FastLED-compatible LED matrices)
 	- I recommend 8x8 grids for cheeks and shoulders, 16x16 grids for legs, and 8x32 grids (x2) for visors
 	- These can be found cheaply on AliExpress, but you can buy the more power-efficient versions from Adafruit
 - Power sources
@@ -44,13 +44,13 @@ Wiki: Working on updating RasPi documentation
 	- If you're coding and flashing on the go, ArduinoDroid works quite well
 - [https://pixilart.com/draw](PixilArt) (web app)
 - An image overlay program. For Windows there's OVERLAY2, but it's pretty persistent nagware. There's a better program out there by the name of Image Overlay Utility, but I'm not going to link it here due to (potentially false) positive malware alerts on it. If you go Googling for this, I reiterate that I'm not liable for any damage done. With that said, it seems to work fine on my machine, I have not seen any suspicious activity. If you would like me to screenshot you overlays of your pixel art, shoot me a [Telegram message](https://t.me/JaredTamana).
-- A Linux-flashed SD card for your Raspberry Pi. I recommend Raspian. For more details on software for your installation, check the wiki.
+- A Linux-flashed SD card for your Raspberry Pi. I recommend Raspberry Pi OS. For more details on software for your installation, check the wiki.
 
 # Notes
-- I do not support macOS or Linux at this time. The reason I don't support macOS is because I don't own a macOS machine. However, the reason I don't support Linux is because the IDE SUCKS on Linux. There's no Library Manager, the Import Libraries tool is broken, your headers and libraries can't just be in the same folder as your sketch, the auto-format tool behaves strangely, shift-backspace is a nightmare... I could go on, but in short, just don't code Arduino on Linux. It hurts me to not support this because I love Linux and it sucks to have to switch between my Windows machine and my RPi constantly, but until Arduino fixes their IDE, I can't use it.
+- I do not support macOS or Linux at this time. The reason I don't support macOS is because I don't own a macOS machine. However, the reason I don't support Linux is because the IDE SUCKS on Linux. There's no Library Manager, the Import Libraries tool is broken, your headers and libraries can't just be in the same folder as your sketch, the auto-format tool behaves strangely, shift-backspace is a nightmare... I could go on, but in short, just don't code Arduino on Linux. It hurts me to not support this because I love Linux and it sucks to have to switch between my Windows machine and my RPi constantly, but until Arduino fixes their IDE, I can't use it. If there's something specific that needs to be fixed for Linux or macOS compatibility and I can look into fixing it.
 - This is a WORK IN PROGRESS. I'm very much learning and working with this.
 - These are Subwuffer's files in their entirety. You are welcome to use them as-is, but I highly encourage diving into the code and customizing things. I've made it very easy through code comments and the wiki to find your way around ^^
-- I do not own the protogen species. For more info on the species and what can and cannot be used in your protogen, please visit [the creator's website](https://www.primaproto.com/). At the time of writing, this site is down for maintenance, but a [backup](https://web.archive.org/web/20191025141630/https://www.primaproto.com/) can be found on the Wayback Machine.
+- I do not own the protogen species. For more info on the species and what can and cannot be used in your protogen, please visit [the creator's website](https://www.primaproto.com/). At the time of writing, this site is down for maintenance, but a [backup](https://web.archive.org/web/20191025141630/https://www.primaproto.com/) can be found on the Wayback Machine. For some reason this backup is SUPER slow, so the most relevant documentation has also been saved [here](https://drive.google.com/drive/folders/186GqGnEvYNcJsp2UskimsFtEwQ23Y9nJ?usp=sharing) in PDF format. (These are © MaliceRisu and therefore are not part of OSPC, they're only linked here for your convienence.)
 - Big thanks to [Jting-F](https://www.youtube.com/channel/UCz8RfRGTDPPoexpyAg22kbg) for the inspiration and guidance along the way <3
 
 # Getting in touch
