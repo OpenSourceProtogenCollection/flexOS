@@ -12,13 +12,15 @@ Arduino: Matrices all fully coded. Serial has been implemented fully. Still havi
 
 RasPi: Main coding done, just waiting on additional microcontrollers to test multiple ttyUSBs.
 
+Android app: SSH functioning, looking at implementing an add button for custom scripts
+
 Suit:
 
-- Materials: Fur ordered, waiting on quote for thermoforming plastic, waiting on 3D model commission before ordering from Kaiborg
+- Materials: Fur ordered, searching for thermoforming plastic, waiting on 3D model commission before ordering from Kaiborg
 	
 - Assembly: DTD assembled. Feetpaws foamed, might still tweak some stuff on them.
 	
-Wiki: Should be up-to-date.
+Wiki: Will be updated with info on the Android app once more progress is made.
 
 # Requirements
 ## Hardware
