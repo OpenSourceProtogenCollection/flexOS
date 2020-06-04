@@ -12,7 +12,7 @@ Arduino: Matrices all fully coded. Serial has been implemented fully. Still havi
 
 RasPi: Main coding done, just waiting on additional microcontrollers to test multiple ttyUSBs.
 
-Android app: SSH functioning, looking at implementing an add button for custom scripts
+Android app: SSH and custom buttons have been implemented, now looking at saving these buttons for future sessions. See the Issues board for current improvements being worked on.
 
 Suit:
 
