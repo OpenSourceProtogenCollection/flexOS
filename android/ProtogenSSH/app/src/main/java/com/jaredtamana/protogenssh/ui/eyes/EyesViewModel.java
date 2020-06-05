@@ -6,14 +6,6 @@ import androidx.lifecycle.ViewModel;
 
 public class EyesViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+    public EyesViewModel() {    }
 
-    public EyesViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is eyes fragment");
-    }
-
-    public LiveData<String> getText() {
-        return mText;
-    }
 }

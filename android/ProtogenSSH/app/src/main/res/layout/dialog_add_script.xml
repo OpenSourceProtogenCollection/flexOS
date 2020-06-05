@@ -34,8 +34,7 @@
             android:id="@+id/radioFullFace"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/full_face"
-            android:checked="true"/>
+            android:text="@string/full_face"/>
         <RadioButton
             android:id="@+id/radioEyesOnly"
             android:layout_width="match_parent"
