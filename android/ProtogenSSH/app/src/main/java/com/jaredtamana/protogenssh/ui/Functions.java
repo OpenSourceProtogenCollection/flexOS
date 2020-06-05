@@ -3,6 +3,7 @@ package com.jaredtamana.protogenssh.ui;
 import android.app.Activity;
 import android.content.Context;
 import android.os.StrictMode;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -59,7 +60,6 @@ public class Functions {
     }
 
     public static void readFile(LinearLayout emoteListLayout, String fileName, final Context context, Activity activity) {
-        System.out.println("entering readfile");
         File internalStorageDir = context.getFilesDir();
         try {
             FileInputStream fileInputStream = context.openFileInput(fileName);
@@ -82,6 +82,7 @@ public class Functions {
                 } catch (NullPointerException ee) {
                     ee.printStackTrace();
                     Toast errorToast = Toast.makeText(context, "NullPointerException, not added", Toast.LENGTH_SHORT);
+                    errorToast.setGravity(Gravity.NO_GRAVITY, 0, 0);
                     errorToast.setMargin(50, 50);
                     errorToast.show();
                     return;
@@ -92,6 +93,7 @@ public class Functions {
         } catch (IOException e) {
             e.printStackTrace();
             Toast errorToast = Toast.makeText(context, "Buttons not loaded: IOException", Toast.LENGTH_SHORT);
+            errorToast.setGravity(Gravity.NO_GRAVITY, 0, 0);
             errorToast.setMargin(50, 50);
             errorToast.show();
         }
@@ -116,11 +118,13 @@ public class Functions {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             Toast errorToast = Toast.makeText(context, "Button not saved: FileNotFoundException", Toast.LENGTH_SHORT);
+            errorToast.setGravity(Gravity.NO_GRAVITY, 0, 0);
             errorToast.setMargin(50, 50);
             errorToast.show();
         } catch (IOException e) {
             e.printStackTrace();
             Toast errorToast = Toast.makeText(context, "Button not saved: IOException", Toast.LENGTH_SHORT);
+            errorToast.setGravity(Gravity.NO_GRAVITY, 0, 0);
             errorToast.setMargin(50, 50);
             errorToast.show();
         }
