@@ -15,4 +15,24 @@
     <string name="full_face">Full Face</string>
     <string name="eyes_only">Eyes Only</string>
     <string name="mouth_only">Mouth Only</string>
+
+    <string name="settings">Settings</string>
+    <string name="buttons_settings">Buttons</string>
+    <string name="resetFullFaceUser">Reset Full Face Buttons</string>
+    <string name="resetEyesOnlyUser">Reset Eyes Only Buttons</string>
+    <string name="resetMouthOnlyUser">Reset Mouth Only Buttons</string>
+    <string name="resetAllUser">Reset All Buttons</string>
+    <string name="reset_scripts">Reset Scripts</string>
+    <string name="reset_full_face_buttons">Reset Full Face Buttons</string>
+    <string name="reset_eyes_only_buttons">Reset Eyes Only Buttons</string>
+    <string name="reset_mouth_only_buttons">Reset Mouth Only Buttons</string>
+    <string name="reset_all_buttons">Reset All Buttons</string>
+    <string name="login_credentials">Login Credentials</string>
+    <string name="password">password</string>
+    <string name="username">username</string>
+    <string name="save">Save</string>
+    <string name="port">port</string>
+    <string name="eyesFile">buttonsEyesOnly.txt</string>
+    <string name="fullFaceFile">buttonsFullFace.txt</string>
+    <string name="mouthFile">buttonsMouthOnly.txt</string>
 </resources>
