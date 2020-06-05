@@ -12,15 +12,15 @@ Arduino: Matrices all fully coded. Serial has been implemented fully. Still havi
 
 RasPi: Main coding done, just waiting on additional microcontrollers to test multiple ttyUSBs.
 
-Android app: SSH and custom buttons have been implemented, now looking at saving these buttons for future sessions. See the Issues board for current improvements being worked on.
+Android app: ProtogenSSH 1.0.0 has been released. You can build it yourself or grab the apk from [Releases](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/releases).
 
 Suit:
 
-- Materials: Fur ordered, searching for thermoforming plastic, waiting on 3D model commission before ordering from Kaiborg
+- Materials: Fur received, searching for thermoforming plastic, 3D model commission received, waiting to send off to Kaiborg
 	
 - Assembly: DTD assembled. Feetpaws foamed, might still tweak some stuff on them.
 	
-Wiki: Will be updated with info on the Android app once more progress is made.
+Wiki: Updating with info on Android app.
 
 # Requirements
 ## Hardware
