@@ -128,10 +128,12 @@ public class SettingsFragment extends Fragment { // main fragment start
                 @Override
                 public void onClick(View v) {
                     if (mInputUsername.getEditableText().toString().trim().equals("")){
-                        mInputPassword.setError(getString(R.string.username_empty_error));
+                        mInputUsername.setError(getString(R.string.username_empty_error));
+                        return;
                     }
                     if (mInputPort.getEditableText().toString().trim().equals("")){
                         mInputPort.setError(getString(R.string.port_empty_error));
+                        return;
                     }
                     SharedPreferences credentialPrefs = getActivity().getSharedPreferences("credentials", Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = credentialPrefs.edit();
