@@ -15,6 +15,8 @@ import androidx.fragment.app.Fragment;
 //import androidx.security.crypto.EncryptedSharedPreferences;
 //import androidx.security.crypto.MasterKeys;
 
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.jaredtamana.protogenssh.R;
 import com.jaredtamana.protogenssh.ui.Functions;
@@ -141,6 +143,9 @@ public class SettingsFragment extends Fragment { // main fragment start
                     editor.putInt(getString(R.string.port_sharedprop), Integer.parseInt(mInputPort.getEditableText().toString()));
                     editor.putString(getString(R.string.password_sharedprop), mInputPassword.getEditableText().toString()); // I want to implement encryption as shown below but am having issues
                     editor.apply();
+                    Snackbar.make(getView(), R.string.cred_save_success_snack, BaseTransientBottomBar.LENGTH_SHORT)
+                        .show();
+                    Functions.hideKeyboard(getContext(), getView());
                 }
 
 
@@ -160,6 +165,9 @@ public class SettingsFragment extends Fragment { // main fragment start
             });
         } catch (Exception e) {
             e.printStackTrace();
+            Snackbar.make(getView(), R.string.cred_save_fail_snack, BaseTransientBottomBar.LENGTH_LONG)
+                .show();
+            Functions.hideKeyboard(getContext(), getView());
         }
 
         return root;

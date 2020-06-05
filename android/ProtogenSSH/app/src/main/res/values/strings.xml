@@ -54,4 +54,6 @@
     <string name="button_load_ioe_snack">Buttons not loaded: IOException</string>
     <string name="npe_add_snack">NullPointerException, not added</string>
     <string name="connect_failed_snack">Failed to connect. Did you connect to the RasPi? Did you add your credentials in Settings?</string>
+    <string name="cred_save_fail_snack">Failed to save credentials, please log to dev.</string>
+    <string name="cred_save_success_snack">Credentials saved successfully.</string>
 </resources>

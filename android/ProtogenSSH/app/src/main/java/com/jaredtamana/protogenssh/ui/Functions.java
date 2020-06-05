@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.StrictMode;
 import android.view.Gravity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -134,5 +135,15 @@ public class Functions {
         buttonStore.delete();
         Snackbar.make(baseView, R.string.buttons_deleted_snack, BaseTransientBottomBar.LENGTH_SHORT)
                 .show();
+    }
+    public static void hideKeyboard(Context context, View view) {
+        try {
+            // use application level context to avoid unnecessary leaks.
+            InputMethodManager inputManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+            assert inputManager != null;
+            inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
