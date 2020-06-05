@@ -2,12 +2,15 @@ package com.jaredtamana.protogenssh.ui;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.StrictMode;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import androidx.preference.PreferenceManager;
 
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.JSch;
@@ -29,10 +32,14 @@ public class Functions {
     // accepts string of command
     // returns void
     static public int executeSSHcommand(String command, Context context) {
-        String user = "pi";
-        String password = "raspberry";
+        // String user = "pi";
+        SharedPreferences sharedPreferences = context.getSharedPreferences("credentials", Context.MODE_PRIVATE);
+        String user = sharedPreferences.getString("username", "pi");
+        String password = sharedPreferences.getString("password", "raspberry");
         String host = "192.168.4.1";
-        int port = 22;
+        int port = sharedPreferences.getInt("port", 22);
+        Toast newToast = Toast.makeText(context, user + password + host + port, Toast.LENGTH_LONG);
+        newToast.show();
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                 .permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -128,5 +135,11 @@ public class Functions {
             errorToast.setMargin(50, 50);
             errorToast.show();
         }
+    }
+
+    public static void deleteFile(String fileName, Context context){
+        File internalStorageDir = context.getFilesDir();
+        File buttonStore = new File(internalStorageDir, fileName);
+        buttonStore.delete();
     }
 }
