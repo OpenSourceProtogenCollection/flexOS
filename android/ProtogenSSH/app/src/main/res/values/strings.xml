@@ -36,7 +36,7 @@
     <string name="fullFaceFile">buttonsFullFace.txt</string>
     <string name="mouthFile">buttonsMouthOnly.txt</string>
     <string name="port_empty_error">Port cannot be empty (default is 22)</string>
-    <string name="username_empty_error">Username cannot be blank</string>
+    <string name="username_empty_error">Username cannot be blank (default is pi)</string>
     <string name="all_buttons_no">No, Keep My Buttons</string>
     <string name="all_buttons_yes">Yes, I\'m Sure</string>
     <string name="buttons_delete_title">Are you sure?</string>
