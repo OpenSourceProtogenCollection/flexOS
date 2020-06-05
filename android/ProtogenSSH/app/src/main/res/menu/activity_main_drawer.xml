@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single" android:id="@+id/mainNavGroup">
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_full_face"
@@ -16,5 +16,13 @@
             android:id="@+id/nav_mouth"
             android:icon="@drawable/ic_mouth"
             android:title="@string/menu_mouth" />
+    </group>
+    <group
+        android:checkableBehavior="single"
+        android:id="@+id/settingsNavGroup">
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/settings" />
     </group>
 </menu>

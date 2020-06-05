@@ -22,4 +22,11 @@
         android:name="com.jaredtamana.protogenssh.ui.mouth.MouthFragment"
         android:label="@string/menu_mouth"
         tools:layout="@layout/fragment_mouth" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.jaredtamana.protogenssh.ui.settings.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings"
+        />
 </navigation>
