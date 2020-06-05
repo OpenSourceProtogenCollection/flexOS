@@ -35,7 +35,7 @@ public class HomeFragment extends Fragment { // main fragment start
         final View root = inflater.inflate(R.layout.fragment_home, container, false);
         Button fabCreateScript = (Button) root.findViewById(R.id.fab);
         final LinearLayout mEmoteList = (LinearLayout) root.findViewById(R.id.scrollViewEmoteListLayout);
-        Functions.readFile(mEmoteList, "buttonsFullFace.txt", getContext(), getActivity());
+        Functions.readFile(mEmoteList, "buttonsMouthOnly.txt", getContext(), getActivity());
         fabCreateScript.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment { // main fragment start
                 final EditText mScriptPath = (EditText) mView.findViewById(R.id.scriptPath);
                 final RadioButton mRadioFullFace = (RadioButton) mView.findViewById(R.id.radioFullFace);
                 final RadioButton mRadioEyesOnly = (RadioButton) mView.findViewById(R.id.radioEyesOnly);
-                RadioButton mRadioMouthOnly = (RadioButton) mView.findViewById(R.id.radioMouthOnly);
+                final RadioButton mRadioMouthOnly = (RadioButton) mView.findViewById(R.id.radioMouthOnly);
                 Button mBtnScriptCancel = (Button) mView.findViewById(R.id.btnCancelScript);
                 Button mBtnScriptApply = (Button) mView.findViewById(R.id.btnApplyScript);
                 mBuilder.setView(mView);
@@ -60,6 +60,13 @@ public class HomeFragment extends Fragment { // main fragment start
                 mBtnScriptApply.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        if (mScriptName.getText().toString().trim().equals("")) { // WHY IS THIS SO GROSS
+                            mScriptName.setError("Please add a name for this script.");
+                            return;
+                        } else if (mScriptPath.getText().toString().trim().equals("")) { // GOD
+                            mScriptPath.setError("Please add a valid command for this script.");
+                            return;
+                        }
                         Button nb = new Button(getActivity());
                         nb.setText(mScriptName.getText().toString());
                         nb.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +80,14 @@ public class HomeFragment extends Fragment { // main fragment start
                                 mEmoteList.addView(nb);
                                 Functions.writeFile(mScriptName.getText().toString(), mScriptPath.getText().toString(), "buttonsFullFace.txt", getContext());
                             } else if (mRadioEyesOnly.isChecked()) {
-
+                                Functions.writeFile(mScriptName.getText().toString(), mScriptPath.getText().toString(), "buttonsEyesOnly.txt", getContext());
+                            } else if (mRadioMouthOnly.isChecked()) {
+                                Functions.writeFile(mScriptName.getText().toString(), mScriptPath.getText().toString(), "buttonsMouthOnly.txt", getContext());
+                            } else {
+                                Toast chooseCategoryToast = Toast.makeText(getContext(), "Please choose a category for this command.", Toast.LENGTH_SHORT);
+                                chooseCategoryToast.setMargin(50, 50);
+                                chooseCategoryToast.show();
+                                return;
                             }
                         } catch (NullPointerException ee) {
                             ee.printStackTrace();
