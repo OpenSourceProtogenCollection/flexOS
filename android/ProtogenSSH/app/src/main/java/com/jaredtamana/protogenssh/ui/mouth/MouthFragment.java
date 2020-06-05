@@ -2,6 +2,7 @@ package com.jaredtamana.protogenssh.ui.mouth;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,6 +80,7 @@ public class MouthFragment extends Fragment { // main fragment start
                                 Functions.writeFile(mScriptName.getEditText().getText().toString(), mScriptPath.getEditText().getText().toString(), "buttonsMouthOnly.txt", getContext());
                             } else {
                                 Toast chooseCategoryToast = Toast.makeText(getContext(), "Please choose a category for this command.", Toast.LENGTH_SHORT);
+                                chooseCategoryToast.setGravity(Gravity.NO_GRAVITY, 0, 0);
                                 chooseCategoryToast.setMargin(50, 50);
                                 chooseCategoryToast.show();
                                 return;
@@ -87,12 +89,14 @@ public class MouthFragment extends Fragment { // main fragment start
                             ee.printStackTrace();
                             Toast errorToast = Toast.makeText(getContext(), "NullPointerException, not added", Toast.LENGTH_SHORT);
                             errorToast.setMargin(50, 50);
+                            errorToast.setGravity(Gravity.NO_GRAVITY, 0, 0);
                             errorToast.show();
                             dialog.dismiss();
                             return;
                         }
                         Toast successToast = Toast.makeText(getContext(), "Added successfully", Toast.LENGTH_SHORT);
                         successToast.setMargin(50, 50);
+                        successToast.setGravity(Gravity.NO_GRAVITY, 0, 0);
                         successToast.show();
 
                         dialog.dismiss();
