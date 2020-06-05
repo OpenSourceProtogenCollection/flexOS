@@ -37,15 +37,15 @@ public class SettingsFragment extends Fragment { // main fragment start
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setTitle("Are you sure?");
-                builder.setMessage("Are you sure you want to delete these buttons?");
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                builder.setTitle(R.string.buttons_delete_title);
+                builder.setMessage(R.string.buttons_delete_text);
+                builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Functions.deleteFile(getString(R.string.fullFaceFile), getContext(), getView());
                     }
                 });
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // nothing
@@ -59,15 +59,15 @@ public class SettingsFragment extends Fragment { // main fragment start
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setTitle("Are you sure?");
-                builder.setMessage("Are you sure you want to delete these buttons?");
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                builder.setTitle(R.string.buttons_delete_title);
+                builder.setMessage(R.string.buttons_delete_text);
+                builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Functions.deleteFile(getString(R.string.eyesFile), getContext(), getView());
                     }
                 });
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // nothing
@@ -81,15 +81,15 @@ public class SettingsFragment extends Fragment { // main fragment start
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setTitle("Are you sure?");
-                builder.setMessage("Are you sure you want to delete these buttons?");
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                builder.setTitle(R.string.buttons_delete_title);
+                builder.setMessage(R.string.buttons_delete_text);
+                builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Functions.deleteFile(getString(R.string.mouthFile), getContext(), getView());
                     }
                 });
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // nothing
@@ -103,9 +103,9 @@ public class SettingsFragment extends Fragment { // main fragment start
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setTitle("Are you sure?");
-                builder.setMessage("Are you sure you want to delete all buttons? This can't be undone!");
-                builder.setPositiveButton("Yes, I'm Sure", new DialogInterface.OnClickListener() {
+                builder.setTitle(R.string.buttons_delete_title);
+                builder.setMessage(R.string.all_buttons_delete_text);
+                builder.setPositiveButton(R.string.all_buttons_yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Functions.deleteFile(getString(R.string.fullFaceFile), getContext(), getView());
@@ -113,7 +113,7 @@ public class SettingsFragment extends Fragment { // main fragment start
                         Functions.deleteFile(getString(R.string.mouthFile), getContext(), getView());
                     }
                 });
-                builder.setNegativeButton("No, Keep My Buttons", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(R.string.all_buttons_no, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // nothing
@@ -127,12 +127,18 @@ public class SettingsFragment extends Fragment { // main fragment start
             mCredentialsSave.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                        SharedPreferences credentialPrefs = getActivity().getSharedPreferences("credentials", Context.MODE_PRIVATE);
-                        SharedPreferences.Editor editor = credentialPrefs.edit();
-                        editor.putString("username", mInputUsername.getEditableText().toString());
-                        editor.putInt("port", Integer.parseInt(mInputPort.getEditableText().toString()));
-                        editor.putString("password", mInputPassword.getEditableText().toString()); // I want to implement encryption as shown below but am having issues
-                        editor.apply();
+                    if (mInputUsername.getEditableText().toString().trim().equals("")){
+                        mInputPassword.setError(getString(R.string.username_empty_error));
+                    }
+                    if (mInputPort.getEditableText().toString().trim().equals("")){
+                        mInputPort.setError(getString(R.string.port_empty_error));
+                    }
+                    SharedPreferences credentialPrefs = getActivity().getSharedPreferences("credentials", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = credentialPrefs.edit();
+                    editor.putString(getString(R.string.usernae_sharedprop), mInputUsername.getEditableText().toString());
+                    editor.putInt(getString(R.string.port_sharedprop), Integer.parseInt(mInputPort.getEditableText().toString()));
+                    editor.putString(getString(R.string.password_sharedprop), mInputPassword.getEditableText().toString()); // I want to implement encryption as shown below but am having issues
+                    editor.apply();
                 }
 
 
