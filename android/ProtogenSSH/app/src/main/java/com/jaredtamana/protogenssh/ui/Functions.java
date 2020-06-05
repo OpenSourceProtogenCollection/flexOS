@@ -61,51 +61,39 @@ public class Functions {
     public static void readFile(LinearLayout emoteListLayout, String fileName, final Context context, Activity activity) {
         System.out.println("entering readfile");
         File internalStorageDir = context.getFilesDir();
-        File buttonStore = new File(internalStorageDir, fileName);
-        System.out.println(buttonStore.getAbsolutePath().toString());
-        if (buttonStore.exists()) {
-            System.out.println("File found");
-            try {
-                FileInputStream fileInputStream = context.openFileInput(fileName);
-                InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+        try {
+            FileInputStream fileInputStream = context.openFileInput(fileName);
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
 
-                BufferedReader reader = new BufferedReader(inputStreamReader);
-                String lines;
-                StringBuffer stringBuffer = new StringBuffer();
-                while (reader.ready()) {
-                    String buttonName = reader.readLine();
-                    final String buttonCommand = reader.readLine();
-                    Button nb = new Button(activity);
-                    nb.setText(buttonName);
-                    nb.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Functions.executeSSHcommand(buttonCommand, context);
-                        }
-                    });
-                    try {
-                        emoteListLayout.addView(nb);
-                    } catch (NullPointerException ee) {
-                        ee.printStackTrace();
-                        Toast errorToast = Toast.makeText(context, "NullPointerException, not added", Toast.LENGTH_SHORT);
-                        errorToast.setMargin(50, 50);
-                        errorToast.show();
-                        return;
+            BufferedReader reader = new BufferedReader(inputStreamReader);
+            while (reader.ready()) {
+                String buttonName = reader.readLine();
+                final String buttonCommand = reader.readLine();
+                Button nb = new Button(activity);
+                nb.setText(buttonName);
+                nb.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Functions.executeSSHcommand(buttonCommand, context);
                     }
+                });
+                try {
+                    emoteListLayout.addView(nb);
+                } catch (NullPointerException ee) {
+                    ee.printStackTrace();
+                    Toast errorToast = Toast.makeText(context, "NullPointerException, not added", Toast.LENGTH_SHORT);
+                    errorToast.setMargin(50, 50);
+                    errorToast.show();
+                    return;
                 }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-                Toast errorToast = Toast.makeText(context, "Buttons not loaded: FileNotFoundException", Toast.LENGTH_SHORT);
-                errorToast.setMargin(50, 50);
-                errorToast.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-                Toast errorToast = Toast.makeText(context, "Buttons not loaded: IOException", Toast.LENGTH_SHORT);
-                errorToast.setMargin(50, 50);
-                errorToast.show();
             }
-        } else {
-            System.out.println("File not found");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast errorToast = Toast.makeText(context, "Buttons not loaded: IOException", Toast.LENGTH_SHORT);
+            errorToast.setMargin(50, 50);
+            errorToast.show();
         }
     }
 
