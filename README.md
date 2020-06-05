@@ -12,7 +12,7 @@ Arduino: Matrices all fully coded. Serial has been implemented fully. Still havi
 
 RasPi: Main coding done, just waiting on additional microcontrollers to test multiple ttyUSBs.
 
-Android app: ProtogenSSH 1.0.0 has been released. You can build it yourself or grab the apk from [Releases](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/releases).
+Android app: ProtogenSSH 1.0.1 has been released. You can build it yourself or grab the apk from [Releases](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/releases).
 
 Suit:
 
