@@ -24,10 +24,10 @@ public class MouthFragment extends Fragment { // main fragment start
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-         View root = inflater.inflate(R.layout.fragment_home, container, false);
+         final View root = inflater.inflate(R.layout.fragment_home, container, false);
         Button fabCreateScript = root.findViewById(R.id.fab);
         final LinearLayout mEmoteList = root.findViewById(R.id.scrollViewEmoteListLayout);
-        Functions.readFile(mEmoteList, getString(R.string.mouthFile), getContext(), getActivity(), getView());
+        Functions.readFile(mEmoteList, getString(R.string.mouthFile), getContext(), getActivity(), root.getRootView());
         fabCreateScript.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,17 +64,17 @@ public class MouthFragment extends Fragment { // main fragment start
                         nb.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Functions.executeSSHcommand(mScriptPath.getEditText().getText().toString(), getContext(), getView());
+                                Functions.executeSSHcommand(mScriptPath.getEditText().getText().toString(), getContext(), root.getRootView());
                             }
                         });
                         try {
                             if (mRadioFullFace.isChecked()) {
-                                Functions.writeFile(mScriptName.getEditText().getText().toString(), mScriptPath.getEditText().getText().toString(), getString(R.string.fullFaceFile), getContext(), getView());
+                                Functions.writeFile(mScriptName.getEditText().getText().toString(), mScriptPath.getEditText().getText().toString(), getString(R.string.fullFaceFile), getContext(), root.getRootView());
                             } else if (mRadioEyesOnly.isChecked()) {
-                                Functions.writeFile(mScriptName.getEditText().getText().toString(), mScriptPath.getEditText().getText().toString(), getString(R.string.eyesFile), getContext(), getView());
+                                Functions.writeFile(mScriptName.getEditText().getText().toString(), mScriptPath.getEditText().getText().toString(), getString(R.string.eyesFile), getContext(), root.getRootView());
                             } else if (mRadioMouthOnly.isChecked()) {
                                 mEmoteList.addView(nb);
-                                Functions.writeFile(mScriptName.getEditText().getText().toString(), mScriptPath.getEditText().getText().toString(), getString(R.string.mouthFile), getContext(), getView());
+                                Functions.writeFile(mScriptName.getEditText().getText().toString(), mScriptPath.getEditText().getText().toString(), getString(R.string.mouthFile), getContext(), root.getRootView());
                             } else {
                                 Toast chooseCategoryToast = Toast.makeText(getContext(), "Please choose a category for this command.", Toast.LENGTH_SHORT);
                                 chooseCategoryToast.setGravity(Gravity.NO_GRAVITY, 0, 0);
@@ -84,11 +84,11 @@ public class MouthFragment extends Fragment { // main fragment start
                             }
                         } catch (NullPointerException ee) {
                             ee.printStackTrace();
-                            Snackbar.make(getView(), "NullPointerException, not added", BaseTransientBottomBar.LENGTH_SHORT);
+                            Snackbar.make(root.getRootView(), "NullPointerException, not added", BaseTransientBottomBar.LENGTH_SHORT);
                             dialog.dismiss();
                             return;
                         }
-                        Snackbar.make(getView(), "Added successfully", BaseTransientBottomBar.LENGTH_SHORT);
+                        Snackbar.make(root.getRootView(), "Added successfully", BaseTransientBottomBar.LENGTH_SHORT);
                         dialog.dismiss();
                     }
                 });
