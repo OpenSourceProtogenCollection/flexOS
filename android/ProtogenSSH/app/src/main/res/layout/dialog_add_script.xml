@@ -5,18 +5,28 @@
     android:paddingVertical="10dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <EditText
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/scriptName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/script_name"
-        />
-    <EditText
+        android:hint="Script Name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/scriptPath"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/script_path"
-        />
+        android:hint="Script Path">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <RadioGroup
         android:layout_width="match_parent"
