@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
+import com.jaredtamana.protogenssh.R;
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.JSchException;
@@ -57,7 +58,7 @@ public class Functions {
 
         } catch (JSchException e) {
             e.printStackTrace();
-            Snackbar.make(baseView, "Failed to connect. Did you connect to the RasPi? Did you add your credentials in Settings?", BaseTransientBottomBar.LENGTH_LONG)
+            Snackbar.make(baseView, R.string.connect_failed_snack, BaseTransientBottomBar.LENGTH_LONG)
             .show();
         }
         return 0;
@@ -85,7 +86,7 @@ public class Functions {
                     emoteListLayout.addView(nb);
                 } catch (NullPointerException ee) {
                     ee.printStackTrace();
-                    Snackbar.make(baseView, "NullPointerException, not added", BaseTransientBottomBar.LENGTH_SHORT)
+                    Snackbar.make(baseView, R.string.npe_add_snack, BaseTransientBottomBar.LENGTH_SHORT)
                             .show();
                     return;
                 }
@@ -94,7 +95,7 @@ public class Functions {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-            Toast errorToast = Toast.makeText(context, "Buttons not loaded: IOException", Toast.LENGTH_SHORT);
+            Toast errorToast = Toast.makeText(context, R.string.button_load_ioe_snack, Toast.LENGTH_SHORT);
             errorToast.setGravity(Gravity.NO_GRAVITY, 0, 0);
             errorToast.setMargin(50, 50);
             errorToast.show();
@@ -113,16 +114,16 @@ public class Functions {
             );
             writer.write(buttonInfo);
             writer.close();
-            Snackbar.make(baseView, "Button saved", BaseTransientBottomBar.LENGTH_SHORT)
+            Snackbar.make(baseView, R.string.button_saved_snack, BaseTransientBottomBar.LENGTH_SHORT)
                     .show();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            Snackbar.make(baseView, "Button not saved: FileNotFoundException", BaseTransientBottomBar.LENGTH_SHORT)
+            Snackbar.make(baseView, R.string.buttons_save_fnfe_snack, BaseTransientBottomBar.LENGTH_SHORT)
                     .show();
         } catch (IOException e) {
             e.printStackTrace();
-            Snackbar.make(baseView, "Button not saved: IOException", BaseTransientBottomBar.LENGTH_SHORT)
+            Snackbar.make(baseView, R.string.buttons_save_ioe_snack, BaseTransientBottomBar.LENGTH_SHORT)
                     .show();
         }
     }
@@ -131,7 +132,7 @@ public class Functions {
         File internalStorageDir = context.getFilesDir();
         File buttonStore = new File(internalStorageDir, fileName);
         buttonStore.delete();
-        Snackbar.make(baseView, "Buttons deleted", BaseTransientBottomBar.LENGTH_SHORT)
+        Snackbar.make(baseView, R.string.buttons_deleted_snack, BaseTransientBottomBar.LENGTH_SHORT)
                 .show();
     }
 }

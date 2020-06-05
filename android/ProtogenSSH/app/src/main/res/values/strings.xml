@@ -35,4 +35,23 @@
     <string name="eyesFile">buttonsEyesOnly.txt</string>
     <string name="fullFaceFile">buttonsFullFace.txt</string>
     <string name="mouthFile">buttonsMouthOnly.txt</string>
+    <string name="port_empty_error">Port cannot be empty (default is 22)</string>
+    <string name="username_empty_error">Username cannot be blank</string>
+    <string name="all_buttons_no">No, Keep My Buttons</string>
+    <string name="all_buttons_yes">Yes, I\'m Sure</string>
+    <string name="buttons_delete_title">Are you sure?</string>
+    <string name="all_buttons_delete_text">Are you sure you want to delete all buttons? This can\'t be undone!</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="buttons_delete_text">Are you sure you want to delete these buttons?</string>
+    <string name="usernae_sharedprop">username</string>
+    <string name="port_sharedprop">port</string>
+    <string name="password_sharedprop">password</string>
+    <string name="buttons_deleted_snack">Buttons deleted</string>
+    <string name="buttons_save_ioe_snack">Button not saved: IOException</string>
+    <string name="buttons_save_fnfe_snack">Button not saved: FileNotFoundException</string>
+    <string name="button_saved_snack">Button saved</string>
+    <string name="button_load_ioe_snack">Buttons not loaded: IOException</string>
+    <string name="npe_add_snack">NullPointerException, not added</string>
+    <string name="connect_failed_snack">Failed to connect. Did you connect to the RasPi? Did you add your credentials in Settings?</string>
 </resources>
