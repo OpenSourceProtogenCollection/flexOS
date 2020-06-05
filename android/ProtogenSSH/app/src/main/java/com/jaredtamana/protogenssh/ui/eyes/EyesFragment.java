@@ -20,6 +20,8 @@ import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
 
 // Project imports
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.jaredtamana.protogenssh.R;
 import com.jaredtamana.protogenssh.ui.Functions;
@@ -28,10 +30,10 @@ public class EyesFragment extends Fragment { // main fragment start
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        Button fabCreateScript = root.findViewById(R.id.fab);
+        final View root = inflater.inflate(R.layout.fragment_home, container, false);
+        final Button fabCreateScript = root.findViewById(R.id.fab);
         final LinearLayout mEmoteList = root.findViewById(R.id.scrollViewEmoteListLayout);
-        Functions.readFile(mEmoteList, getString(R.string.eyesFile), getContext(), getActivity());
+        Functions.readFile(mEmoteList, getString(R.string.eyesFile), getContext(), getActivity(), getView());
         fabCreateScript.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,17 +70,17 @@ public class EyesFragment extends Fragment { // main fragment start
                         nb.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Functions.executeSSHcommand(mScriptPath.getEditText().getText().toString(), getContext());
+                                Functions.executeSSHcommand(mScriptPath.getEditText().getText().toString(), getContext(), getView());
                             }
                         });
                         try {
                             if (mRadioFullFace.isChecked()) {
-                                Functions.writeFile(mScriptName.getEditText().getText().toString(), mScriptPath.getEditText().getText().toString(), getString(R.string.fullFaceFile), getContext());
+                                Functions.writeFile(mScriptName.getEditText().getText().toString(), mScriptPath.getEditText().getText().toString(), getString(R.string.fullFaceFile), getContext(), getView());
                                 } else if (mRadioEyesOnly.isChecked()) {
                                 mEmoteList.addView(nb);
-                                Functions.writeFile(mScriptName.getEditText().getText().toString(), mScriptPath.getEditText().getText().toString(), getString(R.string.eyesFile), getContext());
+                                Functions.writeFile(mScriptName.getEditText().getText().toString(), mScriptPath.getEditText().getText().toString(), getString(R.string.eyesFile), getContext(), getView());
                             } else if (mRadioMouthOnly.isChecked()) {
-                                Functions.writeFile(mScriptName.getEditText().getText().toString(), mScriptPath.getEditText().getText().toString(), getString(R.string.mouthFile), getContext());
+                                Functions.writeFile(mScriptName.getEditText().getText().toString(), mScriptPath.getEditText().getText().toString(), getString(R.string.mouthFile), getContext(), getView());
                             } else {
                                 Toast chooseCategoryToast = Toast.makeText(getContext(), "Please choose a category for this command.", Toast.LENGTH_SHORT);
                                 chooseCategoryToast.setMargin(50, 50);
@@ -88,18 +90,11 @@ public class EyesFragment extends Fragment { // main fragment start
                             }
                         } catch (NullPointerException ee) {
                             ee.printStackTrace();
-                            Toast errorToast = Toast.makeText(getContext(), "NullPointerException, not added", Toast.LENGTH_SHORT);
-                            errorToast.setMargin(50, 50);
-                            errorToast.setGravity(Gravity.NO_GRAVITY, 0, 0);
-                            errorToast.show();
+                            Snackbar.make(getView(), "NullPointerException, not added", BaseTransientBottomBar.LENGTH_SHORT);
                             dialog.dismiss();
                             return;
                         }
-                        Toast successToast = Toast.makeText(getContext(), "Added successfully", Toast.LENGTH_SHORT);
-                        successToast.setMargin(50, 50);
-                        successToast.setGravity(Gravity.NO_GRAVITY, 0, 0);
-                        successToast.show();
-
+                        Snackbar.make(getView(), "Added successfully", BaseTransientBottomBar.LENGTH_SHORT);
                         dialog.dismiss();
                     }
                 });

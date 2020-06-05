@@ -42,7 +42,7 @@ public class SettingsFragment extends Fragment { // main fragment start
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Functions.deleteFile(getString(R.string.fullFaceFile), getContext());
+                        Functions.deleteFile(getString(R.string.fullFaceFile), getContext(), getView());
                     }
                 });
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -64,7 +64,7 @@ public class SettingsFragment extends Fragment { // main fragment start
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Functions.deleteFile(getString(R.string.eyesFile), getContext());
+                        Functions.deleteFile(getString(R.string.eyesFile), getContext(), getView());
                     }
                 });
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -86,7 +86,7 @@ public class SettingsFragment extends Fragment { // main fragment start
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Functions.deleteFile(getString(R.string.mouthFile), getContext());
+                        Functions.deleteFile(getString(R.string.mouthFile), getContext(), getView());
                     }
                 });
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -108,9 +108,9 @@ public class SettingsFragment extends Fragment { // main fragment start
                 builder.setPositiveButton("Yes, I'm Sure", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Functions.deleteFile(getString(R.string.fullFaceFile), getContext());
-                        Functions.deleteFile(getString(R.string.eyesFile), getContext());
-                        Functions.deleteFile(getString(R.string.mouthFile), getContext());
+                        Functions.deleteFile(getString(R.string.fullFaceFile), getContext(), getView());
+                        Functions.deleteFile(getString(R.string.eyesFile), getContext(), getView());
+                        Functions.deleteFile(getString(R.string.mouthFile), getContext(), getView());
                     }
                 });
                 builder.setNegativeButton("No, Keep My Buttons", new DialogInterface.OnClickListener() {
