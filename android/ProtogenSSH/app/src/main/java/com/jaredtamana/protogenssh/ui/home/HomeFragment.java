@@ -15,7 +15,6 @@ import android.widget.Toast;
 // AndroidX imports
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 
 // Project imports
 import com.google.android.material.textfield.TextInputLayout;
@@ -24,28 +23,25 @@ import com.jaredtamana.protogenssh.ui.Functions;
 
 public class HomeFragment extends Fragment { // main fragment start
 
-    private HomeViewModel homeViewModel;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
+
         final View root = inflater.inflate(R.layout.fragment_home, container, false);
-        Button fabCreateScript = (Button) root.findViewById(R.id.fab);
-        final LinearLayout mEmoteList = (LinearLayout) root.findViewById(R.id.scrollViewEmoteListLayout);
-        Functions.readFile(mEmoteList, "buttonsFullFace.txt", getContext(), getActivity());
+        Button fabCreateScript = root.findViewById(R.id.fab);
+        final LinearLayout mEmoteList = root.findViewById(R.id.scrollViewEmoteListLayout);
+        Functions.readFile(mEmoteList, getString(R.string.fullFaceFile), getContext(), getActivity());
         fabCreateScript.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(getActivity());
                 View mView = getLayoutInflater().inflate(R.layout.dialog_add_script, null);
-                final TextInputLayout mScriptName = (TextInputLayout) mView.findViewById(R.id.scriptName);
-                final TextInputLayout mScriptPath = (TextInputLayout) mView.findViewById(R.id.scriptPath);
-                final RadioButton mRadioFullFace = (RadioButton) mView.findViewById(R.id.radioFullFace);
-                final RadioButton mRadioEyesOnly = (RadioButton) mView.findViewById(R.id.radioEyesOnly);
-                final RadioButton mRadioMouthOnly = (RadioButton) mView.findViewById(R.id.radioMouthOnly);
-                Button mBtnScriptCancel = (Button) mView.findViewById(R.id.btnCancelScript);
-                Button mBtnScriptApply = (Button) mView.findViewById(R.id.btnApplyScript);
+                final TextInputLayout mScriptName = mView.findViewById(R.id.scriptName);
+                final TextInputLayout mScriptPath = mView.findViewById(R.id.scriptPath);
+                final RadioButton mRadioFullFace = mView.findViewById(R.id.radioFullFace);
+                final RadioButton mRadioEyesOnly = mView.findViewById(R.id.radioEyesOnly);
+                final RadioButton mRadioMouthOnly = mView.findViewById(R.id.radioMouthOnly);
+                Button mBtnScriptCancel = mView.findViewById(R.id.btnCancelScript);
+                Button mBtnScriptApply = mView.findViewById(R.id.btnApplyScript);
                 mBuilder.setView(mView);
                 final AlertDialog dialog = mBuilder.create();
                 dialog.show();
@@ -76,11 +72,11 @@ public class HomeFragment extends Fragment { // main fragment start
                         try {
                             if (mRadioFullFace.isChecked()) {
                                 mEmoteList.addView(nb);
-                                Functions.writeFile(mScriptName.getEditText().getText().toString(), mScriptPath.getEditText().getText().toString(), "buttonsFullFace.txt", getContext());
+                                Functions.writeFile(mScriptName.getEditText().getText().toString(), mScriptPath.getEditText().getText().toString(), getString(R.string.fullFaceFile), getContext());
                             } else if (mRadioEyesOnly.isChecked()) {
-                                Functions.writeFile(mScriptName.getEditText().getText().toString(), mScriptPath.getEditText().getText().toString(), "buttonsEyesOnly.txt", getContext());
+                                Functions.writeFile(mScriptName.getEditText().getText().toString(), mScriptPath.getEditText().getText().toString(), getString(R.string.eyesFile), getContext());
                             } else if (mRadioMouthOnly.isChecked()) {
-                                Functions.writeFile(mScriptName.getEditText().getText().toString(), mScriptPath.getEditText().getText().toString(), "buttonsMouthOnly.txt", getContext());
+                                Functions.writeFile(mScriptName.getEditText().getText().toString(), mScriptPath.getEditText().getText().toString(), getString(R.string.mouthFile), getContext());
                             } else {
                                 Toast chooseCategoryToast = Toast.makeText(getContext(), "Please choose a category for this command.", Toast.LENGTH_SHORT);
                                 chooseCategoryToast.setMargin(50, 50);
