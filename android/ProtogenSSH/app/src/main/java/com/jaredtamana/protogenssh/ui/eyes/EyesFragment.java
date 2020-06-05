@@ -22,14 +22,7 @@ public class EyesFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         eyesViewModel =
                 ViewModelProviders.of(this).get(com.jaredtamana.protogenssh.ui.eyes.EyesViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_eyes, container, false);
-        final TextView textView = root.findViewById(R.id.text_eyes);
-        eyesViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        View root = inflater.inflate(R.layout.fragment_home, container, false);
         return root;
     }
 }
