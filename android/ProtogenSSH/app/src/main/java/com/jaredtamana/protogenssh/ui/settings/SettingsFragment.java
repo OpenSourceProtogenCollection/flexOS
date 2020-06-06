@@ -39,8 +39,9 @@ public class SettingsFragment extends Fragment { // main fragment start
         Button mMouthOnlyReset = root.findViewById(R.id.btnMouthOnlyReset);
         Button mFullReset = root.findViewById(R.id.btnFullReset);
         Button mCredentialsSave = root.findViewById(R.id.btnCredentialsSave);
-        final TextInputEditText mInputUsername = root.findViewById(R.id.inputUsername);
+        final TextInputEditText mInputHost = root.findViewById(R.id.inputHost);
         final TextInputEditText mInputPort = root.findViewById(R.id.inputPort);
+        final TextInputEditText mInputUsername = root.findViewById(R.id.inputUsername);
         final TextInputEditText mInputPassword = root.findViewById(R.id.inputPassword);
         mFullFaceReset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,10 +145,15 @@ public class SettingsFragment extends Fragment { // main fragment start
                         mInputPort.setError(getString(R.string.port_empty_error)); // set error flag on field
                         return; // stop before exception is thrown
                     }
+                    if (mInputHost.getEditableText().toString().trim().equals("")) { // if host field is empty
+                        mInputHost.setError(getString(R.string.host_empty_error)); // set error flag on field
+                        return; // stop before exception is thrown
+                    }
                     SharedPreferences credentialPrefs = getActivity().getSharedPreferences("credentials", Context.MODE_PRIVATE); // get credentials file
                     SharedPreferences.Editor editor = credentialPrefs.edit(); // pull file into editor
-                    editor.putString(getString(R.string.usernae_sharedprop), mInputUsername.getEditableText().toString()); // change username key to input
+                    editor.putString(getString(R.string.host_sharedprop), mInputHost.getEditableText().toString()); // change host key to input
                     editor.putInt(getString(R.string.port_sharedprop), Integer.parseInt(mInputPort.getEditableText().toString())); // change port key to input
+                    editor.putString(getString(R.string.username_sharedprop), mInputUsername.getEditableText().toString()); // change username key to input
                     // change password key to input
                     // I want to implement encryption using androidx.security.crypto.EncryptedSharedPreferences but am having multiple issues, including the fact that sdk21 is needed
                     editor.putString(getString(R.string.password_sharedprop), mInputPassword.getEditableText().toString());
