@@ -18,7 +18,7 @@ idlePin = Button(5, bounce_time=1)
 checkPin = Button(6, bounce_time=1)
 wrongPin = Button(12, bounce_time=1)
 idPin = Button(13, bounce_time=1)
-joyPin = Button(17, bounce_time=1) # some issue with 35
+joyPin = Button(17, bounce_time=1)
 loadPin = Button(16, bounce_time=1)
 hungryPin = Button(26, bounce_time=1)
 errorPin = Button(20, bounce_time=1)
@@ -29,12 +29,12 @@ laughPin = Button(21, bounce_time=1)
 visorEyes = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
 # visorMouth = serial.Serial('dev/ttyUSB1', 9600, timeout=1)
 visorEyes.flush()
-# visorMouth.flush()#nothing
+# visorMouth.flush()
 
 
 # serial write functions begin here
 
-def writeAttn(): # might not include the mouth, not sure
+def writeAttn():
     visorEyes.write(b"1") # priority 4, left thumb
 #    visorMouth.write(b"1")
     print("attn")
