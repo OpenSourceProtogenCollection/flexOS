@@ -5,6 +5,7 @@ package com.jaredtamana.protogenssh.ui;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.StrictMode;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -13,6 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 // Material imports
+import androidx.security.crypto.EncryptedSharedPreferences;
+import androidx.security.crypto.MasterKeys;
+
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -42,17 +46,47 @@ public class Functions {
     // (this does mean no responses can be grabbed by this function)
     // accepts string of command, context for sharedPrefs, view for snackbar
     // returns void
-    static public int executeSSHcommand(String command, Context context, View baseView) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences("credentials", Context.MODE_PRIVATE); // open credentials file
-        String user = sharedPreferences.getString("username", "pi"); // use credentials unless not set, then use username pi
-        String password = sharedPreferences.getString("password", "raspberry"); // use credentials unless not set, then use password raspberry
-        String host = "192.168.4.1"; // use IP address, will end up adding a field for this later
-        int port = sharedPreferences.getInt("port", 22); // use credentials unless not set, then use port 22
+    static public void executeSSHcommand(String command, Context context, View baseView) {
+        int sdk = Build.VERSION.SDK_INT;
+        String user;
+        String password;
+        String host;
+        int port;
+        SharedPreferences sharedPreferences;
+        if (sdk >= 23){
+            String masterKeyAlias;
+            try {
+                masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC); // get master key
+                sharedPreferences = EncryptedSharedPreferences.create(
+                        "secret_shared_prefs",
+                        masterKeyAlias,
+                        context,
+                        EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                        EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+                );
+            } catch (Exception e) {
+                e.printStackTrace();
+                Snackbar.make(baseView, "Failed to create encryption keys (IOException or SecurityException)", BaseTransientBottomBar.LENGTH_LONG)
+                        .show();
+                return;
+            }
+            user = sharedPreferences.getString(context.getString(R.string.username_sharedprop), "pi");
+            password = sharedPreferences.getString(context.getString(R.string.password_sharedprop), "raspberry");
+            host = sharedPreferences.getString(context.getString(R.string.host_sharedprop), "192.168.4.1");
+            port = sharedPreferences.getInt(context.getString(R.string.port_sharedprop), 22);
+        } else {
+            sharedPreferences = context.getSharedPreferences("credentials", Context.MODE_PRIVATE); // open credentials file
+            user = sharedPreferences.getString("username", "pi"); // use credentials unless not set, then use username pi
+            password = sharedPreferences.getString("password", "raspberry"); // use credentials unless not set, then use password raspberry
+            host = sharedPreferences.getString("host", "192.168.4.1"); // use IP address, will end up adding a field for this later
+            port = sharedPreferences.getInt("port", 22); // use credentials unless not set, then use port 22
+        }
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
                 .permitAll().build();
         StrictMode.setThreadPolicy(policy); // just a workaround
         try {
             JSch jsch = new JSch(); // instantiate a new JSch call
+            assert host != null;
             Session session = jsch.getSession(user, host, port); // set session credentials
             session.setPassword(password); // set password
             java.util.Properties config = new java.util.Properties();
@@ -70,7 +104,6 @@ public class Functions {
             Snackbar.make(baseView, R.string.connect_failed_snack, BaseTransientBottomBar.LENGTH_LONG)
                     .show(); // tell the user the command failed
         }
-        return 0;
     }
 
     // readFile function
@@ -78,7 +111,6 @@ public class Functions {
     // accepts LinearLayout to be placed into, context for fileInput, view for snackbar
     // returns void
     public static void readFile(LinearLayout emoteListLayout, String fileName, final Context context, Activity activity, final View baseView) {
-        File internalStorageDir = context.getFilesDir();
         try {
             // instantiate fis
             FileInputStream fileInputStream = context.openFileInput(fileName);

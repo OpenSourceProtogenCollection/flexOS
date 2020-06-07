@@ -1,11 +1,11 @@
 package com.jaredtamana.protogenssh.ui.settings;
 
-// imports for base Android
-
+// base imports
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +15,8 @@ import android.widget.Button;
 // AndroidX imports
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-//import androidx.security.crypto.EncryptedSharedPreferences;
-//import androidx.security.crypto.MasterKeys;
+import androidx.security.crypto.EncryptedSharedPreferences;
+import androidx.security.crypto.MasterKeys;
 
 // Material imports
 import com.google.android.material.snackbar.BaseTransientBottomBar;
@@ -26,6 +26,7 @@ import com.google.android.material.textfield.TextInputEditText;
 // Self imports
 import com.jaredtamana.protogenssh.R;
 import com.jaredtamana.protogenssh.ui.Functions;
+
 
 public class SettingsFragment extends Fragment { // main fragment start
 
@@ -43,6 +44,7 @@ public class SettingsFragment extends Fragment { // main fragment start
         final TextInputEditText mInputPort = root.findViewById(R.id.inputPort);
         final TextInputEditText mInputUsername = root.findViewById(R.id.inputUsername);
         final TextInputEditText mInputPassword = root.findViewById(R.id.inputPassword);
+        final int sdk = Build.VERSION.SDK_INT;
         mFullFaceReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { // when Reset Full Face Buttons button is clicked
@@ -149,13 +151,34 @@ public class SettingsFragment extends Fragment { // main fragment start
                         mInputHost.setError(getString(R.string.host_empty_error)); // set error flag on field
                         return; // stop before exception is thrown
                     }
-                    SharedPreferences credentialPrefs = getActivity().getSharedPreferences("credentials", Context.MODE_PRIVATE); // get credentials file
-                    SharedPreferences.Editor editor = credentialPrefs.edit(); // pull file into editor
-                    editor.putString(getString(R.string.host_sharedprop), mInputHost.getEditableText().toString()); // change host key to input
+
+                    SharedPreferences sharedPreferences;
+
+                    if (sdk >= 23) {
+                        String masterKeyAlias;
+                        try {
+                            masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC);
+                            sharedPreferences = EncryptedSharedPreferences.create(
+                                    "secret_shared_prefs",
+                                    masterKeyAlias,
+                                    getContext(),
+                                    EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                                    EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
+                            );
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            Snackbar.make(getView(), "Failed to create encryption keys (IOException or SecurityException)", BaseTransientBottomBar.LENGTH_LONG)
+                                    .show();
+                            return;
+                        }
+                    } else {
+                        sharedPreferences = getActivity().getSharedPreferences("credentials", Context.MODE_PRIVATE); // get credentials file
+                    }
+
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString(getString(R.string.host_sharedprop), mInputHost.getEditableText().toString());
                     editor.putInt(getString(R.string.port_sharedprop), Integer.parseInt(mInputPort.getEditableText().toString())); // change port key to input
                     editor.putString(getString(R.string.username_sharedprop), mInputUsername.getEditableText().toString()); // change username key to input
-                    // change password key to input
-                    // I want to implement encryption using androidx.security.crypto.EncryptedSharedPreferences but am having multiple issues, including the fact that sdk21 is needed
                     editor.putString(getString(R.string.password_sharedprop), mInputPassword.getEditableText().toString());
                     editor.apply(); // apply changes
                     Functions.hideKeyboard(getContext(), getView()); // hide the keyboard, it's no longer needed
