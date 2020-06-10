@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.os.Handler;
 import android.os.StrictMode;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -126,7 +127,13 @@ public class Functions {
                 nb.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) { // set OnClick to executeSSHcommand with buttonCommand
-                        Functions.executeSSHcommand(buttonCommand, context, baseView);
+                        Handler h = new Handler(); // create Handler for asynchronous function
+                        h.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                Functions.executeSSHcommand(buttonCommand, context, baseView);
+                            }
+                        });
                     }
                 });
                 try {
