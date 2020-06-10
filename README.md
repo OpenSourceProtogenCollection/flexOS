@@ -4,7 +4,7 @@
  Please check the wiki to get started.
  
 #### GitHub Info
- [![GitHub release (latest by date)](https://img.shields.io/github/v/release/JaredTheWolf/OpenSourceProtogenCollection?color=green&label=ProtogenSSH&style=flat-square)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/releases)
+ [![GitHub release (latest by date)](https://img.shields.io/github/v/release/JaredTheWolf/OpenSourceProtogenCollection?color=green&label=ProtogenSSH_CLICK_TO_DOWNLOAD&style=flat-square)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/releases)
  [![Wiki](https://img.shields.io/badge/-wiki-blueviolet?style=flat-square)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/wiki)
  [![GitHub license](https://img.shields.io/github/license/JaredTheWolf/OpenSourceProtogenCollection?style=flat-square)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/blob/master/LICENSE)
  [![GitHub issues](https://img.shields.io/github/issues/JaredTheWolf/OpenSourceProtogenCollection?style=flat-square)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/issues)
@@ -19,6 +19,7 @@
  ![Arduino status](https://img.shields.io/badge/arduino-refactoring-yellow?style=flat-square)
  ![Python status](https://img.shields.io/badge/python-comlete_for_now-green?style=flat-square)
  ![Shell script status](https://img.shields.io/badge/shell-complete_for_now-green?style=flat-square)
+ ![ProtogenSSH](https://img.shields.io/badge/ProtogenSSH-complete-green?style=flat-square)
  
  Waiting on shipment of new microcontrollers to update shell and Python with static USB binds.
  
