@@ -19,6 +19,7 @@
  ![Arduino status](https://img.shields.io/badge/arduino-refactoring-yellow?style=flat-square)
  ![Python status](https://img.shields.io/badge/python-comlete_for_now-green?style=flat-square)
  ![Shell script status](https://img.shields.io/badge/shell-complete_for_now-green?style=flat-square)
+ 
  Waiting on shipment of new microcontrollers to update shell and Python with static USB binds.
  
  
