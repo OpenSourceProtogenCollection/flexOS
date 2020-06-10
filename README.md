@@ -3,6 +3,8 @@
  
  Please check the wiki to get started.
  
+ [![GitHub release (latest by date)](https://img.shields.io/github/v/release/JaredTheWolf/OpenSourceProtogenCollection?color=green&label=ProtogenSSH)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/releases)
+ 
 # Quick Build Video
 
 [![Watch the video here](https://i.postimg.cc/d0mJMbHL/screenshot-22.png)](https://youtu.be/kCo-e5A9jBQ)
@@ -12,7 +14,7 @@ Arduino: Matrices all fully coded. Serial has been implemented fully. Still havi
 
 RasPi: Main coding done, just waiting on additional microcontrollers to test multiple ttyUSBs.
 
-Android app: ProtogenSSH 1.1.0 has been released. You can build it yourself or grab the apk from [Releases](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/releases).
+Android app: Click the badge above to get the latest version of ProtogenSSH.
 
 Suit:
 
