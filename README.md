@@ -4,7 +4,7 @@
  Please check the wiki to get started.
  
 #### GitHub Info
- [![GitHub release (latest by date)](https://img.shields.io/github/v/release/JaredTheWolf/OpenSourceProtogenCollection?color=green&label=ProtogenSSH_CLICK_TO_DOWNLOAD&style=flat-square)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/releases)
+ [![GitHub release (latest by date)](https://img.shields.io/github/v/release/JaredTheWolf/OpenSourceProtogenCollection?color=green&label=ProtogenSSH%20CLICK%20TO%20DOWNLOAD&style=flat-square)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/releases)
  [![Wiki](https://img.shields.io/badge/-wiki-blueviolet?style=flat-square)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/wiki)
  [![GitHub license](https://img.shields.io/github/license/JaredTheWolf/OpenSourceProtogenCollection?style=flat-square)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/blob/master/LICENSE)
  [![GitHub issues](https://img.shields.io/github/issues/JaredTheWolf/OpenSourceProtogenCollection?style=flat-square)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/issues)
