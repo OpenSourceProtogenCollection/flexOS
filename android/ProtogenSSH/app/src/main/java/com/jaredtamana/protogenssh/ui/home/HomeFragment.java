@@ -1,8 +1,10 @@
 package com.jaredtamana.protogenssh.ui.home;
 
 // imports for base Android
+
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,7 +78,13 @@ public class HomeFragment extends Fragment { // main fragment start
                         nb.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) { // when this button is clicked
-                                Functions.executeSSHcommand(mScriptPath.getEditText().getText().toString(), getContext(), root.getRootView()); // call executeSSHcommand with the command box contents
+                                Handler h = new Handler(); // create Handler for asynchronous function
+                                h.post(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Functions.executeSSHcommand(mScriptPath.getEditText().getText().toString(), getContext(), root.getRootView()); // call executeSSHcommand with the command box contents
+                                    }
+                                });
                             }
                         });
                         try {
