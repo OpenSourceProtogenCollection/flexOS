@@ -3,28 +3,28 @@
  
  Please check the wiki to get started.
  
+#### GitHub Info
  [![GitHub release (latest by date)](https://img.shields.io/github/v/release/JaredTheWolf/OpenSourceProtogenCollection?color=green&label=ProtogenSSH&style=flat-square)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/releases)
+ [![Wiki](https://img.shields.io/badge/-wiki-blueviolet?style=flat-square)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/wiki)
  [![GitHub license](https://img.shields.io/github/license/JaredTheWolf/OpenSourceProtogenCollection?style=flat-square)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/blob/master/LICENSE)
  [![GitHub issues](https://img.shields.io/github/issues/JaredTheWolf/OpenSourceProtogenCollection?style=flat-square)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/issues)
+ 
+#### Contact
+ [![Telegram](https://img.shields.io/badge/-Telegram-blue?style=flat-square)](https://t.me/JaredTamana)
+ [![Twitter](https://img.shields.io/badge/-Twitter-00acee?style=flat-square)](https://twitter.com/JaredTamana)
+ [![Discord](https://img.shields.io/badge/-Discord-7289d9?style=flat-square)](https://discordapp.com/users/375613991294205964)
+ [![Email](https://img.shields.io/badge/-email-e3124d?style=flat-square)](mailto:jaredtamana@gmail.com)
+ 
+#### Code Status
+ ![Arduino status](https://img.shields.io/badge/arduino-refactoring-yellow?style=flat-square)
+ ![Python status](https://img.shields.io/badge/python-comlete_for_now-green?style=flat-square)
+ ![Shell script status](https://img.shields.io/badge/shell-complete_for_now-green?style=flat-square)
+ Waiting on shipment of new microcontrollers to update shell and Python with static USB binds.
+ 
  
 # Quick Build Video
 
 [![Watch the video here](https://i.postimg.cc/d0mJMbHL/screenshot-22.png)](https://youtu.be/kCo-e5A9jBQ)
- 
-# Current Status
-Arduino: Matrices all fully coded. Serial has been implemented fully. Still having issues with the writeLoading pattern. Refactoring some messy (LEDMatrix) code. More patterns may be added in the future, but other parts of the project are more pertinent at this time.
-
-RasPi: Main coding done, just waiting on additional microcontrollers to test multiple ttyUSBs.
-
-Android app: Click the badge above to get the latest version of ProtogenSSH.
-
-Suit:
-
-- Materials: Fur received, searching for thermoforming plastic, 3D model commission received, waiting to send off to Kaiborg
-	
-- Assembly: DTD assembled. Feetpaws foamed, might still tweak some stuff on them.
-	
-Wiki: Updating with info on Android app.
 
 # Requirements
 ## Hardware
@@ -61,7 +61,7 @@ Wiki: Updating with info on Android app.
 - Like what I do? You can find a Sponsor button right beside the Watch, Star and Fork buttons. Any bit is really appreciated. I put a lot of time into this project because I saw a need for it and I enjoy it, but it's completely free for anyone to use.
 
 # Getting in touch
-I love to see what others make! If you have any questions or just want to chat about this project, you can find me on [Telegram](https://t.me/JaredTamana), [Discord](https://discordapp.com/users/375613991294205964), [Twitter](https://twitter.com/JaredTamana), or via email at [jaredtamana@gmail.com](mailto:jaredtamana@gmail.com). Please do try to contact me on Telegram first, that's where I'm most active.
+I love to see what others make! If you have any questions or just want to chat about this project, you can click one of the badges above to get in touch with me. Please do try to contact me on Telegram first, that's where I'm most active.
 
 # License
 This code is licensed under GPLv3. TL;DR you must redistribute the source code of any derivative works under this same license. For more info, see the LICENSE file.
