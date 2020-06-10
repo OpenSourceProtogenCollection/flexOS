@@ -1,9 +1,11 @@
 # Open Source Protogen Collection
- The full files created for Subwuffer the Protogen, to help anyone create their own protogen fursuit (GPLv3)
+ The full files created for Subwuffer the Protogen, to help anyone create their own protogen fursuit
  
  Please check the wiki to get started.
  
- [![GitHub release (latest by date)](https://img.shields.io/github/v/release/JaredTheWolf/OpenSourceProtogenCollection?color=green&label=ProtogenSSH)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/releases)
+ [![GitHub release (latest by date)](https://img.shields.io/github/v/release/JaredTheWolf/OpenSourceProtogenCollection?color=green&label=ProtogenSSH&style=flat-square)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/releases)
+ [![GitHub license](https://img.shields.io/github/license/JaredTheWolf/OpenSourceProtogenCollection?style=flat-square)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/blob/master/LICENSE)
+ [![GitHub issues](https://img.shields.io/github/issues/JaredTheWolf/OpenSourceProtogenCollection?style=flat-square)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/issues)
  
 # Quick Build Video
 
