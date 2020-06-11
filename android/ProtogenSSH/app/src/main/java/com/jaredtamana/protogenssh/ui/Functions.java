@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 // Material imports
@@ -102,8 +103,11 @@ public class Functions {
 
         } catch (JSchException e) {
             e.printStackTrace();
-            Snackbar.make(baseView, R.string.connect_failed_snack, BaseTransientBottomBar.LENGTH_LONG)
-                    .show(); // tell the user the command failed
+            Snackbar snackbar = Snackbar.make(baseView, R.string.connect_failed_snack, BaseTransientBottomBar.LENGTH_LONG);
+            View snackbarView = snackbar.getView();
+            TextView snackTextView = (TextView) snackbarView.findViewById(com.google.android.material.R.id.snackbar_text);
+            snackTextView.setMaxLines(3);
+            snackbar.show(); // tell the user the command failed
         }
     }
 
