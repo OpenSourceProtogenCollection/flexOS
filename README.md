@@ -64,6 +64,3 @@
 
 # Getting in touch
 I love to see what others make! If you have any questions or just want to chat about this project, you can click one of the badges above to get in touch with me. Please do try to contact me on Telegram first, that's where I'm most active.
-
-# License
-This code is licensed under GPLv3. TL;DR you must redistribute the source code of any derivative works under this same license. For more info, see the LICENSE file.
