@@ -22,8 +22,8 @@ def writeId():
     print("id")
     randomNumber = random.randint(0,1)
     if randomNumber == 0:
-        os.system("omxplayer -o local /home/pi/OpenSourceProtogenCollection/raspberry-pi/sounds/identify.wav > /dev/null")
+        os.system("omxplayer -o local /home/pi/flexOS/raspberry-pi/sounds/identify.wav > /dev/null")
     else if randomNumber == 1:
-        os.system("omxplayer -o local /home/pi/OpenSourceProtogenCollection/raspberry-pi/sounds/displayid.wav > /dev/null")
+        os.system("omxplayer -o local /home/pi/flexOS/raspberry-pi/sounds/displayid.wav > /dev/null")
 	
 writeId

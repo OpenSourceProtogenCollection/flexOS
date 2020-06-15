@@ -1,6 +1,6 @@
 /*
-    This file is part of The Open Source Protogen Collection (OSPC).
-    OSPC is free software under the MIT license. Please see https://opensource.org/licenses/MIT for more info
+    This file is part of flexOS and The Open Source Protogen Collection (OSPC).
+    flexOS is free software under the MIT license. Please see https://opensource.org/licenses/MIT for more info
 */
 
 // this sketch will visualize your matrix's wirepath for you so you can accurately create images

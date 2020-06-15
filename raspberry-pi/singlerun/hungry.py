@@ -20,6 +20,6 @@ def writeHungry():
     visorEyes.write(b"k") # priority 3, left beltline
 #    visorMouth.write(b"k")
     print("hungry")
-    os.system("omxplayer -o local /home/pi/OpenSourceProtogenCollection/raspberry-pi/sounds/lifelost.wav > /dev/null")
+    os.system("omxplayer -o local /home/pi/flexOS/raspberry-pi/sounds/lifelost.wav > /dev/null")
 	
 writeHungry

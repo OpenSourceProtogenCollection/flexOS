@@ -15,6 +15,6 @@ def writeCoffee():
     visorEyes.write(b"3") # priority 1
 #    visorMouth.write(b"3")
     print("coffee")
-    os.system("omxplayer -o local /home/pi/OpenSourceProtogenCollection/raspberry-pi/sounds/coffee.wav > /dev/null")
+    os.system("omxplayer -o local /home/pi/flexOS/raspberry-pi/sounds/coffee.wav > /dev/null")
 	
 writeCoffee

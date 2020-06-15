@@ -20,6 +20,6 @@ def writeSleep():
     visorEyes.write(b"d") # priority 3, right hip
 #    visorMouth.write(b"d")
     print("sleep")
-    os.system("omxplayer -o local /home/pi/OpenSourceProtogenCollection/raspberry-pi/sounds/snoring.wav > /dev/null")
+    os.system("omxplayer -o local /home/pi/flexOS/raspberry-pi/sounds/snoring.wav > /dev/null")
 	
 writeSleep

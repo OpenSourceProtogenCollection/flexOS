@@ -15,6 +15,6 @@ def writeHeart():
     visorEyes.write(b"j") # priority 2
 #    visorMouth.write(b"j")
     print("heart")
-    os.system("omxplayer -o local /home/pi/OpenSourceProtogenCollection/raspberry-pi/sounds/exclamation.wav > /dev/null")
+    os.system("omxplayer -o local /home/pi/flexOS/raspberry-pi/sounds/exclamation.wav > /dev/null")
 	
 writeHeart

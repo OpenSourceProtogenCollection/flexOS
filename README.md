@@ -1,12 +1,12 @@
-# Open Source Protogen Collection
+# flexOS
  The full files created for Subwuffer the Protogen, to help anyone create their own protogen fursuit
  
  Please check the wiki to get started.
  
 #### GitHub Info
- [![Wiki](https://img.shields.io/badge/-wiki-blueviolet?style=flat-square)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/wiki)
- [![GitHub license](https://img.shields.io/github/license/JaredTheWolf/OpenSourceProtogenCollection?style=flat-square)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/blob/master/LICENSE)
- [![GitHub issues](https://img.shields.io/github/issues/JaredTheWolf/OpenSourceProtogenCollection?style=flat-square)](https://github.com/JaredTheWolf/OpenSourceProtogenCollection/issues)
+ [![Wiki](https://img.shields.io/badge/-wiki-blueviolet?style=flat-square)](https://github.com/OpenSourceProtogenCollection/flexOS/wiki)
+ [![GitHub license](https://img.shields.io/github/license/OpenSourceProtogenCollection/flexOS?style=flat-square)](https://github.com/OpenSourceProtogenCollection/flexOS/blob/master/LICENSE)
+ [![GitHub issues](https://img.shields.io/github/issues/OpenSourceProtogenCollection/flexOS?style=flat-square)](https://github.com/OpenSourceProtogenCollection/flexOS/issues)
  
 #### Contact
  [![Telegram](https://img.shields.io/badge/-Telegram-blue?style=flat-square)](https://t.me/JaredTamana)

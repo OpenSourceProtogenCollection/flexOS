@@ -20,6 +20,6 @@ def writeChg():
     visorEyes.write(b"2") # priority 4, left index
 #    visorMouth.write(b"2")
     print("chg")
-    os.system("omxplayer -o local /home/pi/OpenSourceProtogenCollection/raspberry-pi/sounds/powerrestored.wav > /dev/null")
+    os.system("omxplayer -o local /home/pi/flexOS/raspberry-pi/sounds/powerrestored.wav > /dev/null")
 	
 writeChg

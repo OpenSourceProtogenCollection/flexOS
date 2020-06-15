@@ -15,6 +15,6 @@ def writeCry():
     visorEyes.write(b"9")
 #    visorMouth.write(b"9")
     print("cry")
-    os.system("omxplayer -o local /home/pi/OpenSourceProtogenCollection/raspberry-pi/sounds/frazzled.wav > /dev/null")
+    os.system("omxplayer -o local /home/pi/flexOS/raspberry-pi/sounds/frazzled.wav > /dev/null")
 	
 writeCry

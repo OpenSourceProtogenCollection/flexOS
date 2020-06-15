@@ -15,6 +15,6 @@ def writeUwu():
     visorEyes.write(b"i") # priority 1
 #    visorMouth.write(b"i")
     print("uwu")
-    os.system("omxplayer -o local /home/pi/OpenSourceProtogenCollection/raspberry-pi/sounds/uwu.wav > /dev/null")
+    os.system("omxplayer -o local /home/pi/flexOS/raspberry-pi/sounds/uwu.wav > /dev/null")
 	
 writeUwu

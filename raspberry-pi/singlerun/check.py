@@ -20,6 +20,6 @@ def writeCheck():
     visorEyes.write(b"6") # priority 4, right index
 #    visorMouth.write(b"6")
     print("check")
-    os.system("omxplayer -o local /home/pi/OpenSourceProtogenCollection/raspberry-pi/sounds/correct.wav > /dev/null")
+    os.system("omxplayer -o local /home/pi/flexOS/raspberry-pi/sounds/correct.wav > /dev/null")
 	
 writeCheck

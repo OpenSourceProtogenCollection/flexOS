@@ -20,6 +20,6 @@ def writeOwo():
     visorEyes.write(b"h") # priority 3, right collar
 #    visorMouth.write(b"h")
     print("owo")
-    os.system("omxplayer -o local /home/pi/OpenSourceProtogenCollection/raspberry-pi/sounds/owo.wav > /dev/null")
+    os.system("omxplayer -o local /home/pi/flexOS/raspberry-pi/sounds/owo.wav > /dev/null")
 	
 writeOwo

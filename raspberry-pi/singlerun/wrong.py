@@ -20,6 +20,6 @@ def writeWrong():
     visorEyes.write(b"7") # priority 4, right middle
 #    visorMouth.write(b"7")
     print("wrong")
-    os.system("omxplayer -o local /home/pi/OpenSourceProtogenCollection/raspberry-pi/sounds/incorrect.wav > /dev/null")
+    os.system("omxplayer -o local /home/pi/flexOS/raspberry-pi/sounds/incorrect.wav > /dev/null")
 	
 writeWrong

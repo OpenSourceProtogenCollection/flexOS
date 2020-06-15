@@ -20,6 +20,6 @@ def writeLaugh():
     visorEyes.write(b"b") # priority 3, left hip
 #    visorMouth.write(b"b")
     print("laugh")
-    os.system("omxplayer -o local /home/pi/OpenSourceProtogenCollection/raspberry-pi/sounds/laughing.wav > /dev/null")
+    os.system("omxplayer -o local /home/pi/flexOS/raspberry-pi/sounds/laughing.wav > /dev/null")
 	
 writeLaugh

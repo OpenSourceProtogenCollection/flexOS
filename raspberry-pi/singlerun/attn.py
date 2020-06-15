@@ -20,6 +20,6 @@ def writeAttn():
     visorEyes.write(b"1") # priority 4, left thumb
 #    visorMouth.write(b"1")
     print("attn")
-    os.system("omxplayer -o local /home/pi/OpenSourceProtogenCollection/raspberry-pi/sounds/rapidchirp.wav > /dev/null")
+    os.system("omxplayer -o local /home/pi/flexOS/raspberry-pi/sounds/rapidchirp.wav > /dev/null")
 	
 writeAttn

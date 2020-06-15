@@ -20,6 +20,6 @@ def writeLow():
     visorEyes.write(b"g") # priority 5, left middle
 #    visorMouth.write(b"g")
     print("low")
-    os.system("omxplayer -o local /home/pi/OpenSourceProtogenCollection/raspberry-pi/sounds/lowbattery.wav > /dev/null")
+    os.system("omxplayer -o local /home/pi/flexOS/raspberry-pi/sounds/lowbattery.wav > /dev/null")
 	
 writeLow

@@ -19,6 +19,6 @@ visorEyes.flush()
     visorEyes.write(b"f") # priority 5, left ring
 #    visorMouth.write(b"f")
     print("lost")
-    os.system("omxplayer -o local /home/pi/OpenSourceProtogenCollection/raspberry-pi/sounds/criticalalarm.wav > /dev/null")
+    os.system("omxplayer -o local /home/pi/flexOS/raspberry-pi/sounds/criticalalarm.wav > /dev/null")
 	
 writeLost

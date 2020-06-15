@@ -15,6 +15,6 @@ def writePhone():
     visorEyes.write(b"c") # priority 1
 #    visorMouth.write(b"c")
     print("phone")
-    os.system("omxplayer -o local /home/pi/OpenSourceProtogenCollection/raspberry-pi/sounds/phone.wav > /dev/null")
+    os.system("omxplayer -o local /home/pi/flexOS/raspberry-pi/sounds/phone.wav > /dev/null")
 	
 writePhone

@@ -1,19 +1,8 @@
-/*
-    This file is part of The Open Source Protogen Collection (OSPC).
-
-  OSPC is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation, either version 3 of the License, or
-  (at your option) any later version.
-
-  OSPC is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
-
-  You should have received a copy of the GNU General Public License
-  along with OSPC.  If not, see <https://www.gnu.org/licenses/>.
+/*     
+    This file is part of flexOS and The Open Source Protogen Collection (OSPC).
+    flexOS is free software under the MIT license. Please see https://opensource.org/licenses/MIT for more info
 */
+
 
 /*                 _       _
      /\           | |     (_)
@@ -47,7 +36,7 @@ void singleLED(int number, long int colour, int delaytime = 0) {
 // Purpose: Draws LEDs by running through the pixels, one by one, and seeing if they should be lit up according to their array
 // Accepts: uint16_t[] of your desired pattern, int size of the pattern array, long int hex code
 // Returns: nothing
-// For more details on how this works, see https://github.com/JaredTheWolf/OpenSourceProtogenCollection/wiki/Notes:-PROGMEM
+// For more details on how this works, see https://github.com/OpenSourceProtogenCollection/flexOS/wiki/Notes:-PROGMEM
 void drawPattern(uint16_t patternArray[], int patternSize, long int colour) {
   // PGM comes into play here. For more info about PGM, see the declarations header or the wiki
   uint16_t nextPixel; // holds current RAM value from PGM

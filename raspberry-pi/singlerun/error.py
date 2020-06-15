@@ -20,6 +20,6 @@ def writeError():
     visorEyes.write(b"5") # priority 3, right beltline
 #    visorMouth.write(b"5")
     print("error")
-    os.system("omxplayer -o local /home/pi/OpenSourceProtogenCollection/raspberry-pi/sounds/criticalwarning.wav > /dev/null")
+    os.system("omxplayer -o local /home/pi/flexOS/raspberry-pi/sounds/criticalwarning.wav > /dev/null")
 	
 writeError

@@ -20,6 +20,6 @@ def writeDni():
     visorEyes.write(b"4") # priority 5, left small
 #    visorMouth.write(b"4")
     print("dni")
-    os.system("omxplayer -o local /home/pi/OpenSourceProtogenCollection/raspberry-pi/sounds/dni.wav > /dev/null")
+    os.system("omxplayer -o local /home/pi/flexOS/raspberry-pi/sounds/dni.wav > /dev/null")
 	
 writeDni
